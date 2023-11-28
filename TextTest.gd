@@ -1,7 +1,7 @@
 extends RichTextLabel
 class_name TextTest
 
-@export var w : String = "Hello there! This is a \ntest text.\nI'm gonna keep\n adding newlines."
+@export_multiline var w : String = "Hello there! This is a \ntest text.\nI'm gonna keep\n adding newlines."
 
 @export var charNF : int = 1
 @export var spaceNF : int = 3
@@ -55,7 +55,7 @@ func _updateWriting():
 			waitFrames -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	_updateWriting()
 	pass
 

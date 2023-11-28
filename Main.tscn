@@ -1,8 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://deff0jqolbh4v"]
+[gd_scene load_steps=6 format=3 uid="uid://deff0jqolbh4v"]
 
 [ext_resource type="Script" path="res://TextTest.gd" id="1_1fby8"]
+[ext_resource type="Script" path="res://Main.gd" id="1_pn28p"]
+[ext_resource type="Theme" uid="uid://rqusr33gr1ku" path="res://Main.tres" id="1_va1gg"]
+[ext_resource type="Shader" path="res://Test.gdshader" id="4_iq437"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0rm2"]
+shader = ExtResource("4_iq437")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.036
+shader_parameter/resolution = Vector2(1600, 900)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 61.766
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.005
+shader_parameter/noise_opacity = 0.11
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.035
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.254
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.176
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_pn28p")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 9.0
@@ -11,10 +39,10 @@ offset_right = 64.0
 offset_bottom = 91.0
 
 [node name="Layout" type="VBoxContainer" parent="."]
-offset_left = 184.0
-offset_top = 13.0
-offset_right = 1384.0
-offset_bottom = 896.0
+offset_left = 89.0
+offset_top = 16.0
+offset_right = 1511.0
+offset_bottom = 894.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 alignment = 1
@@ -23,53 +51,77 @@ alignment = 1
 custom_minimum_size = Vector2(100, 300)
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_va1gg")
 text = "Hello There!"
 scroll_active = false
 scroll_following = true
 script = ExtResource("1_1fby8")
-w = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non mollis nisi. Proin consequat ultricies iaculis. Donec id augue nisl. Curabitur sit amet nisi vel odio rhoncus luctus ac in nibh. Fusce sit amet dolor malesuada, lacinia lectus accumsan, fermentum neque. Duis vitae justo vel augue porttitor scelerisque sed sit amet eros. Maecenas pulvinar leo mi, id aliquam magna convallis aliquam. Integer id augue nisl. Vestibulum ullamcorper sed urna in aliquam. Duis sodales tristique est eget aliquam. Vivamus sollicitudin, ante eget euismod euismod, justo dolor molestie magna, a consequat diam ligula quis massa. Vivamus cursus maximus nulla et blandit. Pellentesque accumsan enim condimentum hendrerit pulvinar. Integer sollicitudin facilisis metus nec porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer sollicitudin, risus quis fringilla porta, nunc risus ornare massa, in ultrices metus libero convallis massa.Maecenas tempor iaculis orci, in tempus neque feugiat vitae. Phasellus orci velit, facilisis vel condimentum eget, sodales vel mauris. Quisque sed auctor mauris, ornare luctus augue. Quisque id augue bibendum, tempus ante non, pellentesque nulla. Donec et sodales lacus. Nunc porta nibh nec est tristique blandit. Aenean luctus efficitur eleifend. Vivamus ornare, dolor at consectetur ornare, sapien elit aliquet metus, nec laoreet sem lorem a metus. Nulla interdum nunc a gravida cursus.Cras ultrices purus sit amet neque aliquam maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam imperdiet, est ac accumsan tincidunt, nisi felis efficitur diam, a commodo urna lorem ut ante. Curabitur mattis augue lectus, at porta justo dignissim vitae. Vivamus sollicitudin consectetur ultricies. Nam vel malesuada sem, in tempus neque. Morbi in luctus sapien. Cras ac gravida magna.Aenean ut ultrices libero. Nulla vitae leo vitae mi placerat hendrerit. Proin purus erat, tincidunt vitae pulvinar sit amet, auctor eu erat. Phasellus est enim, pretium id justo pretium, convallis auctor eros. Nunc aliquam volutpat malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis volutpat lorem, nec sagittis leo sagittis sit amet. Sed ac semper lacus. Duis vehicula ac ligula id pulvinar. Cras id ante condimentum, pulvinar orci vel, hendrerit metus. Donec sit amet fringilla lorem, nec molestie nibh. Sed eu urna in ipsum auctor pretium ut in ligula. Proin et lectus neque. Nunc ut purus augue.In vitae sapien ut eros consectetur commodo. Vestibulum in est et odio luctus euismod. Nunc non sagittis justo. Pellentesque elit urna, euismod id ullamcorper a, tincidunt in libero. Praesent in aliquet enim. Mauris dignissim dolor neque, at viverra orci venenatis ut. Suspendisse malesuada iaculis mi ac ullamcorper. In hac habitasse platea dictumst. Sed fringilla mattis nunc, vitae venenatis libero tristique non. Nullam vel tortor erat. "
+w = ""
 charNF = 0
 spaceNF = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="Layout"]
 clip_contents = true
-custom_minimum_size = Vector2(1000, 400)
+custom_minimum_size = Vector2(1000, 300)
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 8
 
 [node name="GridContainer" type="FlowContainer" parent="Layout/CenterContainer"]
-custom_minimum_size = Vector2(1200, 0)
 layout_mode = 2
 alignment = 1
 
 [node name="Button" type="Button" parent="Layout/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_va1gg")
 text = "1. No Way "
 
 [node name="Button2" type="Button" parent="Layout/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_va1gg")
 text = "2. Yes way"
 
 [node name="Button3" type="Button" parent="Layout/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_va1gg")
 text = "3. Why"
 
 [node name="Button4" type="Button" parent="Layout/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_va1gg")
 text = "4. Did you reallly just say that to me? I can't believe you."
 
 [node name="Button5" type="Button" parent="Layout/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_va1gg")
 text = "5. Ok"
 
 [node name="Button6" type="Button" parent="Layout/CenterContainer/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("1_va1gg")
 text = "6. Fuck you adsdfhasdfjasldkfjas;dfjasldkfjsfjiowejaopsiejfadjdfjskfjasdfjsadk a;sd fjasdfa jsdfk;asd"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+offset_right = 1600.0
+offset_bottom = 900.0
+mouse_filter = 2
+
+[node name="Filter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i0rm2")
+offset_right = 1600.0
+offset_bottom = 900.0
+mouse_filter = 2
 
 [connection signal="pressed" from="Button" to="Layout/RichTextLabel" method="write"]
