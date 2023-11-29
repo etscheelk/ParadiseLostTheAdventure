@@ -14,9 +14,26 @@ var time : float = 0
 var waitFrames : int = 0
 var currentChar : String = ''
 
+enum command {clearBoard, writeContinue, writeFromStart, writePause}
+
 signal doneWriting
 
-func write():
+func clearBoard():
+	text = ""
+	w = ""
+	waitFrames = 0
+	writing = false
+	index = 0
+
+func writeContinue():
+	writing = true
+	pass
+	
+func pauseWrite():
+	writing = false
+	pass
+
+func writeFromStart():
 	currentChar = w[0]
 	text = ""
 	writing = true
@@ -57,8 +74,3 @@ func _updateWriting():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	_updateWriting()
-	pass
-
-
-func _on_button_pressed():
-	pass # Replace with function body.

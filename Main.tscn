@@ -3,49 +3,40 @@
 [ext_resource type="Script" path="res://TextTest.gd" id="1_1fby8"]
 [ext_resource type="Script" path="res://Main.gd" id="1_pn28p"]
 [ext_resource type="Theme" uid="uid://rqusr33gr1ku" path="res://Main.tres" id="1_va1gg"]
-[ext_resource type="Shader" path="res://Test.gdshader" id="4_iq437"]
+[ext_resource type="Material" uid="uid://be41o36vlwy46" path="res://ShaderMaterial.tres" id="4_kyed0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0rm2"]
-shader = ExtResource("4_iq437")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.0
-shader_parameter/grille_opacity = 0.036
-shader_parameter/resolution = Vector2(1600, 900)
-shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 61.766
-shader_parameter/roll_variation = 0.1
-shader_parameter/distort_intensity = 0.005
-shader_parameter/noise_opacity = 0.11
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.035
-shader_parameter/aberration = 0.00500005
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.254
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.176
+[sub_resource type="ViewportTexture" id="ViewportTexture_cc37w"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pn28p")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 9.0
-offset_top = 49.0
-offset_right = 64.0
-offset_bottom = 91.0
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(500, 500)
 
-[node name="Layout" type="VBoxContainer" parent="."]
-offset_left = 89.0
-offset_top = 16.0
-offset_right = 1511.0
-offset_bottom = 894.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = ExtResource("4_kyed0")
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = SubResource("ViewportTexture_cc37w")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Layout" type="MarginContainer" parent="."]
+offset_right = 1600.0
+offset_bottom = 900.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 50
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Layout"]
 custom_minimum_size = Vector2(100, 300)
@@ -57,16 +48,18 @@ scroll_active = false
 scroll_following = true
 script = ExtResource("1_1fby8")
 w = ""
-charNF = 0
-spaceNF = 0
+spaceNF = 2
+newLineNF = 12
 
 [node name="CenterContainer" type="CenterContainer" parent="Layout"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(1000, 300)
 layout_mode = 2
 size_flags_vertical = 8
 
 [node name="GridContainer" type="FlowContainer" parent="Layout/CenterContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -112,16 +105,4 @@ layout_mode = 2
 theme = ExtResource("1_va1gg")
 text = "6. Fuck you adsdfhasdfjasldkfjas;dfjasldkfjsfjiowejaopsiejfadjdfjskfjasdfjsadk a;sd fjasdfa jsdfk;asd"
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
-offset_right = 1600.0
-offset_bottom = 900.0
-mouse_filter = 2
-
-[node name="Filter" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_i0rm2")
-offset_right = 1600.0
-offset_bottom = 900.0
-mouse_filter = 2
-
-[connection signal="pressed" from="Button" to="Layout/RichTextLabel" method="write"]
+[connection signal="doneWriting" from="Layout/RichTextLabel" to="." method="on_done_writing"]
