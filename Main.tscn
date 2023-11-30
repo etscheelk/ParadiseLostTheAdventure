@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://deff0jqolbh4v"]
+[gd_scene load_steps=6 format=3 uid="uid://dxq7jywlm3phu"]
 
 [ext_resource type="Script" path="res://TextTest.gd" id="1_1fby8"]
-[ext_resource type="Script" path="res://Main.gd" id="1_pn28p"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_sbxjx"]
 [ext_resource type="Theme" uid="uid://rqusr33gr1ku" path="res://Main.tres" id="1_va1gg"]
 [ext_resource type="Material" uid="uid://be41o36vlwy46" path="res://ShaderMaterial.tres" id="4_kyed0"]
 
@@ -9,7 +9,7 @@
 viewport_path = NodePath("SubViewport")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_pn28p")
+script = ExtResource("1_sbxjx")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(500, 500)
@@ -48,61 +48,8 @@ scroll_active = false
 scroll_following = true
 script = ExtResource("1_1fby8")
 w = ""
-spaceNF = 2
-newLineNF = 12
-
-[node name="CenterContainer" type="CenterContainer" parent="Layout"]
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(1000, 300)
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="GridContainer" type="FlowContainer" parent="Layout/CenterContainer"]
-visible = false
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="Layout/CenterContainer/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("1_va1gg")
-text = "1. No Way "
-
-[node name="Button2" type="Button" parent="Layout/CenterContainer/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("1_va1gg")
-text = "2. Yes way"
-
-[node name="Button3" type="Button" parent="Layout/CenterContainer/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("1_va1gg")
-text = "3. Why"
-
-[node name="Button4" type="Button" parent="Layout/CenterContainer/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("1_va1gg")
-text = "4. Did you reallly just say that to me? I can't believe you."
-
-[node name="Button5" type="Button" parent="Layout/CenterContainer/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("1_va1gg")
-text = "5. Ok"
-
-[node name="Button6" type="Button" parent="Layout/CenterContainer/GridContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("1_va1gg")
-text = "6. Fuck you adsdfhasdfjasldkfjas;dfjasldkfjsfjiowejaopsiejfadjdfjskfjasdfjsadk a;sd fjasdfa jsdfk;asd"
+charNF = 0
+spaceNF = 0
+newLineNF = 10
 
 [connection signal="doneWriting" from="Layout/RichTextLabel" to="." method="on_done_writing"]

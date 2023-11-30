@@ -26,6 +26,7 @@ func clearBoard():
 	index = 0
 
 func writeContinue():
+	currentChar = "\n"
 	writing = true
 	pass
 	
@@ -72,5 +73,5 @@ func _updateWriting():
 			waitFrames -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _process(delta):
 	_updateWriting()
