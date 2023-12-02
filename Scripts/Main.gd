@@ -6,6 +6,8 @@ var maxChoices : int = 6
 var options : Array = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""]]
 var canSelectNow : bool = false
 
+var appreciationOfNature : int = 0
+
 signal optionNum(opt : int)
 
 # Called when the node enters the scene tree for the first time.
@@ -53,7 +55,8 @@ What do you do?
 	
 	
 	opt = await getopt([1,2])
-	if opt == 1: # Stay atop the hill
+	# STAY ATOP HILL
+	if opt == 1: 
 		text.w += "
 
 You stay upon the dewy verdant hill,
@@ -69,19 +72,142 @@ You, LUCIFER, stretch your shoulders and turn slowly about taking in the fresh a
 		text.writeContinue()
 		await text.doneWriting
 		
-		var directions : Array = []
+		var optionsTaken : Array = []
 		opt = await getopt([1,2,3,4,5])
+		# LOOK NORTH
+		if opt == 1: 
+			text.w += "
+
+A great mountain stands to the north, fresh water rolls down from the summit to the lake below. 
+"
+			text.writeContinue()
+			await text.doneWriting
+			await secondDirectionLook()
+			pass
+			
+		# LOOK EAST
+		elif opt == 2:
+			text.w += "
+
+A lake to the east is where the water from the summit drains, perfectly reflecting the sky. 
+"
+			text.writeContinue()
+			await text.doneWriting
+			await secondDirectionLook()
+			pass
 		
+		# LOOK SOUTH
+		elif opt == 3:
+			text.w += "
+
+Your companions stand in a small circle in a glade visible from the hill, gentle pertubations in the terrain create pleasant ripples in the land. The breeze sways the tall grass.
+"
+			text.writeContinue()
+			await text.doneWriting
+			await secondDirectionLook()
+			pass
+			
+		# LOOK WEST
+		elif opt == 4:
+			text.w += "
+
+A forest of birch casts gentle shadows, a runoff stream from the mountain carves delicately through the wood, soft sounds of burbling.
+"
+			text.writeContinue()
+			await text.doneWriting
+			await secondDirectionLook()
+			pass
+			
+		# ELSE DO NOTHING, CONTINUE AS NORMAL
 		pass
 	
-	# Happens no matter what
+	# ELSE GO TO FRIENDS (HAPPENS NO MATTER WHAT)
 	text.w += "
 	
-	You approach your companions now, BEEZLEBUB, etc. idk lol"
+	You approach your companions now, BEEZLEBUB, MOLOCH, BELIAL, and so on in the midst of their discussion"
+	text.writeContinue()
+	await text.doneWriting
+	text.w += "
+
+		'Good of you to finally join us! Getting a good look around?' asks BEEZLEBUB. 
+		You reply, 
+			'What point of wandrous journey else to lavish
+			amongst great unknown lands and learn the love
+			of our most kindly father? Yea, I watch.'"
+	if appreciationOfNature > 0:
+		text.w += "
+		'Every place we stop contains untold beauty, each pause a great moment of wonder,' you continue."
+	text.w += "
+
+	'You may ask what draws our attention thus,' Moloch said, brow kingly and wont of a burning fire 'neath deathly shade.
+	
+	1. Continue"
 	text.writeContinue()
 	await text.doneWriting
 	
+	opt = await getopt([1])
 	
+	text.w += "
+	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see see such a Heavenly pronouncement?'"
+	text.writeContinue()
+	await text.doneWriting
+	
+
+func secondDirectionLook():
+	text.w += "
+	You remain on the hill for now.
+
+		1. Look North
+4. Look West 		2. Look East
+		3. Look South
+		
+		5. Leave"
+	text.writeContinue()
+	await text.doneWriting
+	
+	var opt = await getopt([1,2,3,4,5])
+	if opt == 1:
+		text.w += "
+
+The mountain in the north appears as the greatest knife of a giant, jutting through the land, jagged separate points covered now in snow.
+
+		You gain an appreciation of nature."
+		text.writeContinue()
+		await text.doneWriting
+		appreciationOfNature += 1
+		pass
+	elif opt == 2:
+		text.w += "
+
+A small beach rests calmly upon the lake to the east, a great spot to recline.
+
+		You gain an appreciation of nature."
+		text.writeContinue()
+		await text.doneWriting
+		appreciationOfNature += 1
+		pass
+	elif opt == 3:
+		text.w += "
+
+Bits of interested conversation from your companions jut their way through the light breeze and the murmur, though only in tone and not of particular. You are not concerned.
+
+		You gain an appreciation of nature."
+		text.writeContinue()
+		await text.doneWriting
+		appreciationOfNature += 1
+		pass
+	elif opt == 4:
+		text.w += "
+
+There is a gentle rustle in the underbrush of the birch forest to the west. Small things dart in and out playfully.
+
+		You gain an appreciation of nature."
+		text.writeContinue()
+		await text.doneWriting
+		appreciationOfNature += 1
+		pass
+	pass
+
 func _game():
 	
 	pass

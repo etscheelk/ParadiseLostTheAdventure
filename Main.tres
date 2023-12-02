@@ -2,7 +2,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_1k4el"]
 font_names = PackedStringArray("Courier New")
-font_weight = 600
+font_weight = 800
 generate_mipmaps = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8mm8"]
