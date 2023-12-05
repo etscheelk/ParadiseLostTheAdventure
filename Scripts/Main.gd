@@ -7,6 +7,7 @@ var options : Array = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""
 var canSelectNow : bool = false
 
 var appreciationOfNature : int = 0
+var loveOfGod : int = 0
 
 signal optionNum(opt : int)
 
@@ -39,16 +40,6 @@ Your eye wanders upon the beauty about and see from atop your hill your companio
 	await text.doneWriting
 	
 	var opt : int = await getopt([1])
-#	await writeNormal("
-#You are LUCIFER,
-#great of the angels of heaven.
-#
-#	You wake to the early morn, light suffusing all.
-#Your eye wanders upon the beauty about and see from atop your hill your companions in the distance.
-#
-#What do you do?
-#	1. Stay atop the verdant hill
-#	2. Approach your companions")
 	text.w = "
 You are LUCIFER,
 great of the angels of heaven.
@@ -140,11 +131,76 @@ A forest of birch casts gentle shadows, a runoff stream from the mountain carves
 
 	'You may ask what draws our attention thus,' Moloch said, brow kingly and wont of a burning fire 'neath deathly shade.")
 	
-	await cont()
+	# wait on continue
+	await cont1()
 	
 	await writeNormal("
 	
-	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see see such a Heavenly pronouncement?'")
+	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see see such a Heavenly pronouncement?'
+	
+What do you do?
+	1. We will attend
+	2. We will continue our own journey
+	3. What is to be said?")
+	
+	opt = await getopt([1,2,3])
+	if opt == 3:
+		await writeNormal("
+
+	You ask plainly, 'What is to be said at this great banquet of The Almighty?'
+	
+	'We know not but that it is His wish that His Greatest attend' says BELIAL. 
+	
+1. If it's important, we will hear of it later
+2. God's messages will ring out all around us for He is everywhere
+3. We will attend upon his request
+4. He is our Lord and his will intrigues me. We will join him and our brethren angels")
+		if opt == 2 or opt == 4:
+			loveOfGod += 1
+		else:
+			loveOfGod -= 1
+
+		opt = await getopt([1,2,3,4])
+		if opt == 1 or opt == 2:
+			await noattend()
+		elif opt == 3 or opt == 4:
+			await attend()
+	elif opt == 1:
+		writeNormal("
+		
+We will attend the Lord's request--I am very intrigued.")
+		await attend()
+		
+	elif opt == 2:
+		writeNormal("
+		
+And so after some thought you say, 'I've decided we shall continue our own journey,'")
+		await noattend()
+
+
+func attend() -> void:
+	writeNormal("
+	
+	And so LUCIFER and his cadre decide to see what is afoot at the Center of Heaven--whether that is curiosity, obedience, or respect of the Almighty's designs. ")
+	
+
+func noattend() -> void:
+	await writeNormal("
+	
+	And so LUCIFER and his cadre decide to continue their journey, respecting that the Almighty gave them their will and knowing He is understanding. The Message of God shall quick find their ears the same.")
+	
+	await cont1()
+	
+	await writeNormal("
+	
+	LUCIFER continues his journey, scouting, learning, and reveling in the beauty of Heaven. West along the foot of the mountain, atimes alight on their wings or else on foot, pausing frequently to observe this first-seen land, they continue. Each spoke their thoughts roving now, though interested in the happenings of the Court of God this day enraptured fully in oth'wise unprec-dented journey far askew haven angelic.")
+	
+	await cont1()
+	
+	await writeNormal("
+	
+	This now they see: a tooth of stone of the Heaven conquered by God jutting higher yet than seen before, justly they stood astonished. Snow-capped it stood for seeming leagues ")
+
 
 func secondDirectionLook():
 	await writeNormal("
@@ -164,7 +220,7 @@ The mountain in the north appears as the greatest knife of a giant, jutting thro
 
 		You gain an appreciation of nature.")
 		appreciationOfNature += 1
-		await approachFriends()
+		await cont1("\n\n1. Approach companions")
 		pass
 	elif opt == 2:
 		await writeNormal("
@@ -173,7 +229,7 @@ A small beach rests calmly upon the lake to the east, a great spot to recline.
 
 		You gain an appreciation of nature.")
 		appreciationOfNature += 1
-		await approachFriends()
+		await cont1("\n\n1. Approach companions")
 		pass
 	elif opt == 3:
 		await writeNormal("
@@ -182,7 +238,7 @@ Bits of interested conversation from your companions jut their way through the l
 
 		You gain an appreciation of nature.")
 		appreciationOfNature += 1
-		await approachFriends()
+		await cont1("\n\n1. Approach companions")
 		pass
 	elif opt == 4:
 		await writeNormal("
@@ -191,21 +247,15 @@ There is a gentle rustle in the underbrush of the birch forest to the west. Smal
 
 		You gain an appreciation of nature.")
 		appreciationOfNature += 1
-		await approachFriends()
+		await cont1("\n\n1. Approach companions")
 		pass
 	pass
 
-func approachFriends() -> void:
-	await writeNormal("
 
-1. Approach companions")
-	var opt = await getopt([1])
-
-func cont() -> void:
-	await writeNormal("
-	
-1. Continue")
-	var opt = await getopt([1])
+## Simple function for printing a single simple line, waiting for user input of 1
+func cont1(lines : String = "\n\n1. Continue") -> void:
+	await writeNormal(lines)
+	var _opt = await getopt([1])
 
 
 ## For normal text use. Add words to the printing text, continue writing, 
@@ -219,37 +269,37 @@ func writeNormal(words : String) -> void:
 	await text.doneWriting
 	
 func _input(event):
-	if Input.is_action_pressed("1"):
+	if event.is_action_pressed("1"):
 		optionNum.emit(1)
 #		doN(0)
 		
-	if Input.is_action_pressed("2"):
+	if event.is_action_pressed("2"):
 		optionNum.emit(2)
 #		doN(1)
 		
-	if Input.is_action_pressed("3"):
+	if event.is_action_pressed("3"):
 		optionNum.emit(3)
 #		doN(2)
 		
-	if Input.is_action_pressed("4"):
+	if event.is_action_pressed("4"):
 		optionNum.emit(4)
 #		doN(3)
 		
-	if Input.is_action_pressed("5"):
+	if event.is_action_pressed("5"):
 		optionNum.emit(5)
 #		doN(4)
 		
-	if Input.is_action_pressed("6"):
+	if event.is_action_pressed("6"):
 		optionNum.emit(6)
 #		doN(5)
 		
-	if Input.is_action_pressed("quit"):
+	if event.is_action_pressed("quit"):
 		get_tree().change_scene_to_file("res://Main.tscn")
 		
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func doN(n : int):
