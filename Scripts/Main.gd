@@ -39,11 +39,20 @@ Your eye wanders upon the beauty about and see from atop your hill your companio
 	await text.doneWriting
 	
 	var opt : int = await getopt([1])
-	
+#	await writeNormal("
+#You are LUCIFER,
+#great of the angels of heaven.
+#
+#	You wake to the early morn, light suffusing all.
+#Your eye wanders upon the beauty about and see from atop your hill your companions in the distance.
+#
+#What do you do?
+#	1. Stay atop the verdant hill
+#	2. Approach your companions")
 	text.w = "
 You are LUCIFER,
 great of the angels of heaven.
-	
+
 	You wake to the early morn, light suffusing all.
 Your eye wanders upon the beauty about and see from atop your hill your companions in the distance.
 
@@ -57,7 +66,7 @@ What do you do?
 	opt = await getopt([1,2])
 	# STAY ATOP HILL
 	if opt == 1: 
-		text.w += "
+		await writeNormal("
 
 You stay upon the dewy verdant hill,
 the grass a'glist with anticipation for the day. 
@@ -68,53 +77,42 @@ You, LUCIFER, stretch your shoulders and turn slowly about taking in the fresh a
 4. Look West 		2. Look East
 		3. Look South
 		
-		5. Leave"
-		text.writeContinue()
-		await text.doneWriting
+		5. Leave")
 		
-		var optionsTaken : Array = []
 		opt = await getopt([1,2,3,4,5])
 		# LOOK NORTH
 		if opt == 1: 
-			text.w += "
+			await writeNormal("
 
 A great mountain stands to the north, fresh water rolls down from the summit to the lake below. 
-"
-			text.writeContinue()
-			await text.doneWriting
+")
 			await secondDirectionLook()
 			pass
 			
 		# LOOK EAST
 		elif opt == 2:
-			text.w += "
+			writeNormal("
 
 A lake to the east is where the water from the summit drains, perfectly reflecting the sky. 
-"
-			text.writeContinue()
-			await text.doneWriting
+")
 			await secondDirectionLook()
 			pass
 		
 		# LOOK SOUTH
 		elif opt == 3:
-			text.w += "
+			await writeNormal("
 
 Your companions stand in a small circle in a glade visible from the hill, gentle pertubations in the terrain create pleasant ripples in the land. The breeze sways the tall grass.
-"
-			text.writeContinue()
-			await text.doneWriting
+")
 			await secondDirectionLook()
 			pass
 			
 		# LOOK WEST
 		elif opt == 4:
-			text.w += "
+			await writeNormal("
 
 A forest of birch casts gentle shadows, a runoff stream from the mountain carves delicately through the wood, soft sounds of burbling.
-"
-			text.writeContinue()
-			await text.doneWriting
+")
 			await secondDirectionLook()
 			pass
 			
@@ -122,95 +120,103 @@ A forest of birch casts gentle shadows, a runoff stream from the mountain carves
 		pass
 	
 	# ELSE GO TO FRIENDS (HAPPENS NO MATTER WHAT)
-	text.w += "
+	await writeNormal("
 	
-	You approach your companions now, BEEZLEBUB, MOLOCH, BELIAL, and so on in the midst of their discussion"
-	text.writeContinue()
-	await text.doneWriting
-	text.w += "
+	You approach your companions now, BEEZLEBUB, MOLOCH, BELIAL, and so on in the midst of their discussion.")
+	
+	await writeNormal("
 
 		'Good of you to finally join us! Getting a good look around?' asks BEEZLEBUB. 
 		You reply, 
 			'What point of wandrous journey else to lavish
 			amongst great unknown lands and learn the love
-			of our most kindly father? Yea, I watch.'"
+			of our most kindly father? Yea, I watch.'")
+			
 	if appreciationOfNature > 0:
-		text.w += "
-		'Every place we stop contains untold beauty, each pause a great moment of wonder,' you continue."
-	text.w += "
+		await writeNormal("
+		'Every place we stop contains untold beauty, each pause a great moment of wonder,' you continue.")
+		
+	writeNormal("
 
-	'You may ask what draws our attention thus,' Moloch said, brow kingly and wont of a burning fire 'neath deathly shade.
+	'You may ask what draws our attention thus,' Moloch said, brow kingly and wont of a burning fire 'neath deathly shade.")
 	
-	1. Continue"
-	text.writeContinue()
-	await text.doneWriting
+	await cont()
 	
-	opt = await getopt([1])
+	await writeNormal("
 	
-	text.w += "
-	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see see such a Heavenly pronouncement?'"
-	text.writeContinue()
-	await text.doneWriting
-	
+	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see see such a Heavenly pronouncement?'")
 
 func secondDirectionLook():
-	text.w += "
+	await writeNormal("
 	You remain on the hill for now.
 
 		1. Look North
 4. Look West 		2. Look East
 		3. Look South
 		
-		5. Leave"
-	text.writeContinue()
-	await text.doneWriting
+		5. Leave")
 	
 	var opt = await getopt([1,2,3,4,5])
 	if opt == 1:
-		text.w += "
+		await writeNormal("
 
 The mountain in the north appears as the greatest knife of a giant, jutting through the land, jagged separate points covered now in snow.
 
-		You gain an appreciation of nature."
-		text.writeContinue()
-		await text.doneWriting
+		You gain an appreciation of nature.")
 		appreciationOfNature += 1
+		await approachFriends()
 		pass
 	elif opt == 2:
-		text.w += "
+		await writeNormal("
 
 A small beach rests calmly upon the lake to the east, a great spot to recline.
 
-		You gain an appreciation of nature."
-		text.writeContinue()
-		await text.doneWriting
+		You gain an appreciation of nature.")
 		appreciationOfNature += 1
+		await approachFriends()
 		pass
 	elif opt == 3:
-		text.w += "
+		await writeNormal("
 
 Bits of interested conversation from your companions jut their way through the light breeze and the murmur, though only in tone and not of particular. You are not concerned.
 
-		You gain an appreciation of nature."
-		text.writeContinue()
-		await text.doneWriting
+		You gain an appreciation of nature.")
 		appreciationOfNature += 1
+		await approachFriends()
 		pass
 	elif opt == 4:
-		text.w += "
+		await writeNormal("
 
 There is a gentle rustle in the underbrush of the birch forest to the west. Small things dart in and out playfully.
 
-		You gain an appreciation of nature."
-		text.writeContinue()
-		await text.doneWriting
+		You gain an appreciation of nature.")
 		appreciationOfNature += 1
+		await approachFriends()
 		pass
 	pass
 
-func _game():
+func approachFriends() -> void:
+	await writeNormal("
+
+1. Approach companions")
+	var opt = await getopt([1])
+
+func cont() -> void:
+	await writeNormal("
 	
-	pass
+1. Continue")
+	var opt = await getopt([1])
+
+
+## For normal text use. Add words to the printing text, continue writing, 
+## waiting until text is done writing
+##
+## the correct call of this function is `await writeNormal("...")` so
+## Threading shenanigans don't happen. 
+func writeNormal(words : String) -> void:
+	text.w += words
+	text.writeContinue()
+	await text.doneWriting
 	
 func _input(event):
 	if Input.is_action_pressed("1"):
@@ -238,7 +244,8 @@ func _input(event):
 #		doN(5)
 		
 	if Input.is_action_pressed("quit"):
-		_start()
+		get_tree().change_scene_to_file("res://Main.tscn")
+		
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
