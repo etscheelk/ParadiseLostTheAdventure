@@ -48,8 +48,7 @@ scroll_active = false
 scroll_following = true
 script = ExtResource("1_1fby8")
 w = ""
-charNF = 0
-spaceNF = 0
+spaceNF = 2
 newLineNF = 10
 
 [connection signal="doneWriting" from="Layout/RichTextLabel" to="." method="on_done_writing"]

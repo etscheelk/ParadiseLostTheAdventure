@@ -150,11 +150,12 @@ What do you do?
 	You ask plainly, 'What is to be said at this great banquet of The Almighty?'
 	
 	'We know not but that it is His wish that His Greatest attend' says BELIAL. 
-	
-1. If it's important, we will hear of it later
-2. God's messages will ring out all around us for He is everywhere
-3. We will attend upon his request
-4. He is our Lord and his will intrigues me. We will join him and our brethren angels")
+
+What do you do?
+	1. If it's important, we will hear of it later
+	2. God's messages will ring out all around us for He is everywhere
+	3. We will attend upon his request
+	4. He is our Lord and his will intrigues me. We will join him and our brethren angels")
 		if opt == 2 or opt == 4:
 			loveOfGod += 1
 		else:
@@ -162,13 +163,21 @@ What do you do?
 
 		opt = await getopt([1,2,3,4])
 		if opt == 1 or opt == 2:
+			await writeNormal("
+
+'We shall attend on our Lord's words,' you say.")
+			await cont1()
 			await noattend()
 		elif opt == 3 or opt == 4:
+			await writeNormal("
+
+'We will tread our own path,' you declare.")
+			await cont1()
 			await attend()
 	elif opt == 1:
 		writeNormal("
 		
-We will attend the Lord's request--I am very intrigued.")
+You admit to your companions, 'We will attend the Lord's request--I am very intrigued.'")
 		await attend()
 		
 	elif opt == 2:
@@ -199,7 +208,73 @@ func noattend() -> void:
 	
 	await writeNormal("
 	
-	This now they see: a tooth of stone of the Heaven conquered by God jutting higher yet than seen before, justly they stood astonished. Snow-capped it stood for seeming leagues ")
+	This now they see: a tooth of stone of the Heaven conquered by God jutting higher yet than seen before, justly they stood astonished. Snow-capped it stood for seeming leagues above them.
+	
+	Upon this sight the fiery MOLOCH says: 'Great is the might of God as oft eludes us his sons. Unquenchable his fury it may be and might yet. What great powers else dost our Lord reveal upon this day?'")
+	
+	await cont1()
+	
+	await writeNormal("
+	
+	BEEZLEBUB stands crosswise, 'MOLOCH,' he says, 'Upon your elegizing you mythologize our Lord greater--He takes no form but of a Presence of Heaven--I believe he is knowable, though infinite, if infinite be knowable indeed. ")
+	
+	await cont1()
+	
+	await writeNormal("
+	
+	BELIAL stands a'gleaming before his allies and utters thus: 'Whereof we come is of no doubt, the center of heaven and the right Godly Center of Heaven we pronounce our Lord. Thereof is no doubt. Considering it heavily makes this also a pilgrimage of faith which need not be.")
+	
+	await writeNormal("
+	
+What do you say?
+	1. I agree with MOLOCH, perhaps we should have strove nearer our Center this day.
+	2. I agree with MOLOCH, I am concerned about the power that God may hold.
+	3. I agree with BEEZLEBUB, we take our forms to grow closer to God and to know Him.
+	4. I agree with BEEZLEBUB, though I stand that the infinite may not be grasped entirely.
+	5. I agree with BELIAL, senseless argument brings us nowhere. 
+	6. I agree with BELIAL, a pilgrimage of faith it is not.")
+	
+	var opt = await getopt([1,2,3,4,5,6])
+	if opt == 1:
+		await writeNormal("
+		
+	You say, 'I agree with MOLOCH, perhaps we should have strove nearer our Center this day...'")
+		pass
+	if opt == 2:
+		await writeNormal("
+		
+	You say, 'I agree with MOLOCH, I am concerned about the power that God may hold...'")
+		pass
+	if opt == 3:
+		await writeNormal("
+		
+	You say, 'I agree with BEEZLEBUB, we take our forms to grow closer to God and to know Him...'")
+		pass
+	if opt == 4:
+		await writeNormal("
+		
+	You say, 'I agree with BEEZLEBUB, though I stand that the infinite may not be grasped entirely...'")
+		pass
+	if opt == 5:
+		await writeNormal("
+		
+	You say, 'I agree with BELIAL, senseless argument brings us nowhere...'")
+		pass
+	if opt == 6:
+		await writeNormal("
+		
+	You say, 'I agree with BELIAL, a pilgrimage of faith it is not...'")
+		pass
+	
+	await writeNormal("
+	
+	Just as your last words fall silent the ground shakes and the tooth of rock far off reverbrates and rings, reflecting within itself and near its root, as a call in empty room or wave in clear pond, like that nymph Echo. Thrice you hear it ring and upon the third the mountain shakes. At the final call a great rush of leaden snow rolls down the side battering all in its way. Residual shakes make your feet uneasy--trees tremble and the world remains silent out of respect.")
+
+	await cont1("\n\n1. What is happening?")
+	
+	writeNormal("")
+	
+	
 
 
 func secondDirectionLook():
