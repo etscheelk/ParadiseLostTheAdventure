@@ -5,6 +5,9 @@ var maxChoices : int = 6
 
 var appreciationOfNature : int = 0
 var loveOfGod : int = 0
+var molochAgree : int = 0
+var beezlebubAgree : int = 0
+var belialAgree : int = 0
 
 signal optionNum(opt : int)
 
@@ -118,7 +121,7 @@ A forest of birch casts gentle shadows, a runoff stream from the mountain carves
 		
 	writeNormal("
 
-	'You may ask what draws our attention thus,' Moloch said, brow kingly and wont of a burning fire 'neath deathly shade.")
+	'You may ask what draws our attention thus,' MOLOCH said, brow kingly and wont of a burning fire 'neath deathly shade.")
 	
 	# wait on continue
 	await cont1()
@@ -218,7 +221,7 @@ func noattend() -> void:
 What do you say?
 	1. I agree with MOLOCH, perhaps we should have strove nearer our Center this day.
 	2. I agree with MOLOCH, I am concerned about the power that God may hold.
-	3. I agree with BEEZLEBUB, we take our forms to grow closer to God and to know Him.
+	3. I agree with BEEZLEBUB, we take our material forms to grow closer to God and to know Him.
 	4. I agree with BEEZLEBUB, though I stand that the infinite may not be grasped entirely.
 	5. I agree with BELIAL, senseless argument brings us nowhere. 
 	6. I agree with BELIAL, a pilgrimage of faith it is not.")
@@ -228,31 +231,37 @@ What do you say?
 		await writeNormal("
 		
 	You say, 'I agree with MOLOCH, perhaps we should have strove nearer our Center this day...'")
+		molochAgree += 1
 		pass
 	if opt == 2:
 		await writeNormal("
 		
 	You say, 'I agree with MOLOCH, I am concerned about the power that God may hold...'")
+		molochAgree += 1
 		pass
 	if opt == 3:
 		await writeNormal("
 		
 	You say, 'I agree with BEEZLEBUB, we take our forms to grow closer to God and to know Him...'")
+		beezlebubAgree += 1
 		pass
 	if opt == 4:
 		await writeNormal("
 		
 	You say, 'I agree with BEEZLEBUB, though I stand that the infinite may not be grasped entirely...'")
+		beezlebubAgree += 1
 		pass
 	if opt == 5:
 		await writeNormal("
 		
 	You say, 'I agree with BELIAL, senseless argument brings us nowhere...'")
+		belialAgree += 1
 		pass
 	if opt == 6:
 		await writeNormal("
 		
 	You say, 'I agree with BELIAL, a pilgrimage of faith it is not...'")
+		belialAgree += 1
 		pass
 	
 	await writeNormal("
@@ -264,7 +273,45 @@ What do you say?
 	await writeNormal("
 	
 	The breeze of God's whispers returns.
-	Each stood aghast of ruin around them")
+	
+	Raving MOLOCH turns on a foot aghast and speaks thusly: 
+		'The Power of God above has shown its face 
+		 in cataclysm, here! Our Lord must speak
+		 with sweetest harming words now, or some
+		 great spectacle shown to brethren sons.'")
+		
+	await writeNormal(
+		"
+What do you do?
+	1. Split up and examine the destruction around you
+	2. Look towards the Center
+		")
+	opt = await getopt([1,2])
+	if opt == 1: # Split up and look around
+		pass
+	if opt == 2: # Look towards Center
+		await writeNormal(
+		"
+	You take to your wings and soar to great heights to investigate the Center. The eyes angelic contract far distance. 
+	The sun is embattled now for her greatness in the sky at the center, though she still the victor. A second light thus joins the horizon where the Center the Lord Above resides. Four white towers there now reside about a great central chamber out of which points His vision. A great stair approaches from the East to this new hill. 
+	
+	'God hath made construction, meseems,' you say to your companions, 'I know not.'
+		")
+		
+		await cont1()
+		
+		await writeNormal(
+			"
+	BELIAL fairly asks, 'A new temple for himself?'
+	'A home, what of home need our immaterial Lord?' says BEEZLEBUB. 
+	'To be worshipped?' flames MOLOCH.
+	
+What do you do?
+	1. <no comment>
+	2. I know not
+	3. 
+			"
+		)
 	
 	
 
