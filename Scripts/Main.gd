@@ -3,9 +3,6 @@ extends Node2D
 var text : RichTextLabel
 var maxChoices : int = 6
 
-var options : Array = [["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""]]
-var canSelectNow : bool = false
-
 var appreciationOfNature : int = 0
 var loveOfGod : int = 0
 
@@ -27,19 +24,11 @@ func getopt(optList : Array) -> int:
 func _start():
 	text.w = "PARADISE LOST: THE TEXT ADVENTURE\nby Ethan Scheelk\n2023-11-27\n"
 	text.writeFromStart()
-	
+
 	text.w += "\n\nPress 1 to begin\n\nPress q at any time to return to the start"
-	options[0] = [text.command.writeContinue, 
-		"
-You are LUCIFER,
-great of the angels of heaven.
-	
-	You wake to the early morn, light suffusing all.
-Your eye wanders upon the beauty about and see from atop your hill your companions in the distance."]
-	
 	await text.doneWriting
 	
-	var opt : int = await getopt([1])
+	var opt = await getopt([1])
 	text.w = "
 You are LUCIFER,
 great of the angels of heaven.
@@ -165,13 +154,13 @@ What do you do?
 		if opt == 1 or opt == 2:
 			await writeNormal("
 
-'We shall attend on our Lord's words,' you say.")
+'We will tread our own path,' you declare.")
 			await cont1()
 			await noattend()
 		elif opt == 3 or opt == 4:
 			await writeNormal("
 
-'We will tread our own path,' you declare.")
+'We shall attend on our Lord's words,' you say.")
 			await cont1()
 			await attend()
 	elif opt == 1:
@@ -272,7 +261,10 @@ What do you say?
 
 	await cont1("\n\n1. What is happening?")
 	
-	writeNormal("")
+	await writeNormal("
+	
+	The breeze of God's whispers returns.
+	Each stood aghast of ruin around them")
 	
 	
 
@@ -346,57 +338,23 @@ func writeNormal(words : String) -> void:
 func _input(event):
 	if event.is_action_pressed("1"):
 		optionNum.emit(1)
-#		doN(0)
 		
 	if event.is_action_pressed("2"):
 		optionNum.emit(2)
-#		doN(1)
 		
 	if event.is_action_pressed("3"):
 		optionNum.emit(3)
-#		doN(2)
 		
 	if event.is_action_pressed("4"):
 		optionNum.emit(4)
-#		doN(3)
 		
 	if event.is_action_pressed("5"):
 		optionNum.emit(5)
-#		doN(4)
 		
 	if event.is_action_pressed("6"):
 		optionNum.emit(6)
-#		doN(5)
 		
 	if event.is_action_pressed("quit"):
 		get_tree().change_scene_to_file("res://Main.tscn")
-		
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-	
-func doN(n : int):
-	if not canSelectNow:
-		print("Can't select now")
-		return
-	if options[n] == ["", ""]:
-		print("Option [", n, "] not bound right now")
-		return
-	else:
-		canSelectNow = false
-#		text.w += options[n][1]
-		text.w = options[n][1]
-#		text.writeContinue()
-		text.writeFromStart()
-		print("Option [", n, "] chosen.")
-		_resetOptions()
-		
-func _resetOptions() -> void:
-	for i in range(maxChoices):
-		options[i] = ["", ""]
 
 
-func on_done_writing():
-	canSelectNow = true
