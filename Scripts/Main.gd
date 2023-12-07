@@ -292,14 +292,109 @@ What do you do?
 	if opt == 1: # Split up and look around ## INCOMPLETE
 		await writeNormal(
 			"
+	You decide to split up and look around. Where you stray are fissures in the soil. You wander further and find the great pile of snow now attempting to melt. It lies in great contrast to the dry canyon in which it rests. You find respite on the precipice for a moment. 
+	
+	Suddenly, leaves crinkle and rustle behind you by uncareful steps and a figure of cherub-look appears. He looks past you and thus you say: 
+		'Ho there, wanderer. You carry no deft or deceit and I sense no untoward nature of you, but of a sudden you do appear. Who might you be? A lost cherub, a new companion to our journeys perhaps, but a clumsy one, and a wingless form for the moment. LUCIFIER, I be, a sojourner, of the sons of God as you may be. Experiencer of that perhaps devine cataclsym hours past, thrice the mountain rung and oft ground shook and snow fell. I say again, who might you be, fellow?'
+			"
+		)
+		
+		await cont1("1. Well??")
+		
+		await writeNormal(
+			"
+	The stranger now looks squarely on and through you eyes alight and a gaze like that of a strike of a sword, it impacts and carries through. Lo, the stranger says:
+		'Greetings LUCIFER, fellow of wanderers in this Land of Faith. Aye, I heard the same a short time ago. Yet... at that time I was alight and heard it only and experienced not the unsteadiness I hear you now describe. How unlucky or perhaps favorable we are to meet now.'
+			"
+		)
+		
+		await cont1(
+			"
+1. You know who I am?
+			"
+		)
+		
+		await writeNormal(
+			"
+	'Aye, I know ye,' the wanderer continues, 'LUCIFER, Great of the angels of heaven, sons of God! 
+	
+	And you will continue to be known, I am sure of it. 
+	
+	We all stand within the strand of time. Do you believe in your own control over your future? Is it entirely within your control? Or, middling, are our lives like a braid pinned at end and start yet spread wide in the middle, to be fixed again at end of time?'
+			"
+		)
+		
+		await cont1(
+			"
+1. What, dost thou portend?
+			"
+		)
+		
+		await writeNormal(
+			"
+	The wanderer smiles slowly with mirth and speaks: 'Portend? I dream as much. You crumble at perplexity. I know not where you will go, but you may still ask me, if it entertain ye. I merely know the comings and goings and the patters of heaven.'
+			
+What do you ask?
+	1. I will not ask a question.
+	2. Who are you?
+	3. What happened in the Center today?
+	4. What is in my future?
+			"
+		)
+		
+		opt = await getopt([1,2,3,4])
+		if opt == 1:
+			writeNormal(
+				"
+	'So be it,' says the man.
+				"
+			)
+			pass
+		if opt == 2:
+			writeNormal(
+				"
+	'I am who you see me as while I do not,' says the wanderer.
+				"
+			)
+			pass
+		if opt == 3:
+			writeNormal(
+				"
+	'Heaven has a new Son,' reveals the wanderer. 
+				"
+			)
+			pass
+		if opt == 4:
+			writeNormal(
+				"
+	'LUCIFER, greatest of potentials in Heaven, you will have the mightiest sway of the future to come,' says the wanderer.
+				"
+			)
+		writeNormal(
+			"
+I hope you will be satisfied with your decision,' he continues.
+
+	A high whistle beckons and the wanderer follows now, waving goodbye. You remain seating. He is gone.
+			"
+		)
+	
+		await cont1()
+		
+		await writeNormal(
+			"
 	
 			"
 		)
+		
+		
+		
+		
+		
 	if opt == 2: # Look towards the center
 		await writeNormal(
 		"
 	You take to your wings and soar to great heights to investigate the Center. The eyes angelic contract far distance. 
-	The sun is embattled now for her greatness in the sky at the center, though she still the victor. A second light thus joins the horizon where the Center the Lord Above resides. Four white towers there now reside about a great central chamber out of which points His vision. A great stair approaches from the East to this new hill. 
+	The sun is embattled now for her greatness in the sky at the center, though she still the victor. A second light thus joins the horizon where the Center the Lord Above inhabits. Four white towers there now reside about a great central chamber out of which points His vision. A great stair approaches from the East to this new hill. 
 	
 	'God hath made construction, meseems,' you say to your companions, 'I know not.'
 		")
@@ -331,7 +426,7 @@ Shall you head back to the center or stay where you are, contemplating?
 		if opt == 2:
 			await writeNormal(
 				"
-	'I am suffused with shock, awe, and surprised. We must remain here awhile to think on these matters,' you say.
+	'I am suffused with shock and awe. We must remain here awhile to think on these matters,' you say.
 				"
 			)
 			await stayPut()
@@ -344,7 +439,7 @@ func headBack() -> void: ## INCOMPLETE
 	pass
 
 # attend, cataclysm, {rise into air, split up investigate}, stay put
-func stayPut() -> void:
+func stayPut() -> void: ## INCOMPLETE
 	pass
 
 func secondDirectionLook():
