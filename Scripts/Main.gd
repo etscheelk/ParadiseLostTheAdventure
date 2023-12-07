@@ -9,6 +9,8 @@ var molochAgree : int = 0
 var beezlebubAgree : int = 0
 var belialAgree : int = 0
 
+var feeling : String
+
 signal optionNum(opt : int)
 
 # Called when the node enters the scene tree for the first time.
@@ -179,7 +181,7 @@ And so after some thought you say, 'I've decided we shall continue our own journ
 		await noattend()
 
 
-func attend() -> void:
+func attend() -> void: ## INCOMPLETE
 	writeNormal("
 	
 	And so LUCIFER and his cadre decide to see what is afoot at the Center of Heaven--whether that is curiosity, obedience, or respect of the Almighty's designs. ")
@@ -287,9 +289,13 @@ What do you do?
 	2. Look towards the Center
 		")
 	opt = await getopt([1,2])
-	if opt == 1: # Split up and look around
-		pass
-	if opt == 2: # Look towards Center
+	if opt == 1: # Split up and look around ## INCOMPLETE
+		await writeNormal(
+			"
+	
+			"
+		)
+	if opt == 2: # Look towards the center
 		await writeNormal(
 		"
 	You take to your wings and soar to great heights to investigate the Center. The eyes angelic contract far distance. 
@@ -306,15 +312,40 @@ What do you do?
 	'A home, what of home need our immaterial Lord?' says BEEZLEBUB. 
 	'To be worshipped?' flames MOLOCH.
 	
-What do you do?
-	1. <no comment>
-	2. I know not
-	3. 
+	You float down to the surface again. 
+	
+Shall you head back to the center or stay where you are, contemplating?
+	1. Head back
+	2. Remain where you are
 			"
 		)
-	
+		opt = await getopt([1,2])
+		if opt == 1:
+			await writeNormal(
+				"
+	'I do not know what to think. I think we shall head back,' you say.
+				"
+			)
+			await headBack()
+			
+		if opt == 2:
+			await writeNormal(
+				"
+	'I am suffused with shock, awe, and surprised. We must remain here awhile to think on these matters,' you say.
+				"
+			)
+			await stayPut()
+			pass
+		
 	
 
+# attend, cataclysm, {rise into air, split up investigate}, head back
+func headBack() -> void: ## INCOMPLETE
+	pass
+
+# attend, cataclysm, {rise into air, split up investigate}, stay put
+func stayPut() -> void:
+	pass
 
 func secondDirectionLook():
 	await writeNormal("
