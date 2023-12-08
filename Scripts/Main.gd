@@ -11,6 +11,9 @@ var belialAgree : int = 0
 
 var feeling : String
 
+var knowsOfSon : bool = false
+var tellsAboutSon : bool
+
 signal optionNum(opt : int)
 
 # Called when the node enters the scene tree for the first time.
@@ -182,9 +185,54 @@ And so after some thought you say, 'I've decided we shall continue our own journ
 
 
 func attend() -> void: ## INCOMPLETE
-	writeNormal("
+	await writeNormal(
+		"
+	And so LUCIFER and his cadre decide to see what is afoot at the Center of Heaven--whether that is curiosity, obedience, or respect of the Almighty's designs.
+		"
+	)
 	
-	And so LUCIFER and his cadre decide to see what is afoot at the Center of Heaven--whether that is curiosity, obedience, or respect of the Almighty's designs. ")
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	Their mountain vista now molds and melds through many shapes as they travel. Pleasant green rolling hills, gentle plateaus of lush forests. Now, they approach the beatific center of the Center. They approach from elevation, standing on the cliff before it. Great round trees the legs of giants block their view occasionally as they follow the path parallel to the cliff. There is an intense energy in the air, a virtual buzzing, Heaven a-hum with anticipation. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	Throngs upon throngs of brethren angels arrive, many landing to take pleasant strolls along paths laden with flowers. You exhange pleasantries with other friends and acquaintances, disclose your recent journey 'round heaven. 
+	
+	The center is a gorge, wrapped about by this great cliff. About the center five tiers of cascading falls lie, each tier its own small home to a series of small pools where crystal-clear water rests for a time before continuing its joruney down the cliff. Uncountable angels remain in places of relaxation among the water and the shade. 
+	This gorge feeds all the waters of Heaven, itself fed by the waters of the Source, the Center. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	'You seem greater at ease, my friend LUCIFER,' BELIAL says, 'as we now approach... why is that?'
+	
+Why do you say?
+	1. It's the natural beauty
+	2.  
+		"
+	)
 	
 
 func noattend() -> void:
@@ -280,8 +328,8 @@ What do you say?
 		'The Power of God above has shown its face 
 		 in cataclysm, here! Our Lord must speak
 		 with sweetest harming words now, or some
-		 great spectacle shown to brethren sons.'")
-		
+		 great spectacle shown to brethren sons.'")	
+	
 	await writeNormal(
 		"
 What do you do?
@@ -289,7 +337,8 @@ What do you do?
 	2. Look towards the Center
 		")
 	opt = await getopt([1,2])
-	if opt == 1: # Split up and look around ## INCOMPLETE
+	var optCopy = opt
+	if optCopy == 1: # Split up and look around
 		await writeNormal(
 			"
 	You decide to split up and look around. Where you stray are fissures in the soil. You wander further and find the great pile of snow now attempting to melt. It lies in great contrast to the dry canyon in which it rests. You find respite on the precipice for a moment. 
@@ -299,7 +348,11 @@ What do you do?
 			"
 		)
 		
-		await cont1("1. Well??")
+		await cont1(
+			"
+1. Well??
+			"
+		)
 		
 		await writeNormal(
 			"
@@ -344,53 +397,137 @@ What do you ask?
 		
 		opt = await getopt([1,2,3,4])
 		if opt == 1:
-			writeNormal(
+			await writeNormal(
 				"
 	'So be it,' says the man.
 				"
 			)
 			pass
 		if opt == 2:
-			writeNormal(
+			await writeNormal(
 				"
 	'I am who you see me as while I do not,' says the wanderer.
 				"
 			)
 			pass
 		if opt == 3:
-			writeNormal(
+			await writeNormal(
 				"
 	'Heaven has a new Son,' reveals the wanderer. 
 				"
 			)
+			knowsOfSon = true
 			pass
 		if opt == 4:
-			writeNormal(
+			await writeNormal(
 				"
 	'LUCIFER, greatest of potentials in Heaven, you will have the mightiest sway of the future to come,' says the wanderer.
 				"
 			)
-		writeNormal(
+		await writeNormal(
 			"
 I hope you will be satisfied with your decision,' he continues.
 
-	A high whistle beckons and the wanderer follows now, waving goodbye. You remain seating. He is gone.
+	A high whistle beckons and the wanderer follows now, bowing goodbye. You remain seated. He is gone.
 			"
 		)
 	
 		await cont1()
 		
-		await writeNormal(
+		if opt == 1 or opt == 2: # no question or who are you
+			await writeNormal(
+				"
+	'What a strange man,' you say to yourself, 'Heaven has strange trespassers.'
+				"
+			)
+			pass
+		if opt == 3: # Heaven has new son
+			await writeNormal(
+				"
+	'A new Son? He said it of particular importance. How did he know already? What does this spell for us? This must be what was revealed today--and caused this cataclysm here and all throughout Heaven. Are we now less significant to our Lord? 
+				"
+			)
+			pass
+		if opt == 4: # Told future importance
+			await writeNormal(
+				"
+	'Claim of no portention yet portent it seem to be be. I am merely one--do I see too little for myself?
+				"
+			)
+			pass
+		
+		await cont1(
 			"
-	
+1. Return to the knoll whence you came to reconvene
 			"
 		)
 		
+		await writeNormal(
+			"
+	You return to your allies to whom you say:
+	
+	'I have met the strangest wanderer. He claimed no portent yet offered an answer to a question of my asking. I shall not reveal what I heard but whatever we all have seen or heard we are at an impasse. Either we continue our journey or we turn back to learn more of the happenings of today--what of the Center today.'
+	
+	The sun has now begun to show her dimmer side in lower sky and these sons of God are left in silhouette. 
+			"
+		)
+		
+		if knowsOfSon:
+			await writeNormal(
+				"
+Do you tell them what the wanderer said of the new Son of God?
+	1. Yes
+	2. No
+				"
+			)
+			opt = await getopt([1,2])
+			
+			if opt == 1:
+				await writeNormal(
+					"
+	'Actually,' you say, 'this wanderer revealed to me some of what happened in the Center this failing day. \"God has a new Son,\" he claimed, with particular importance I might add. I know not how he came to this knowledge.... but I believe it to be true.'
+					"
+				)
+				
+				await cont1(
+					"
+1. Continue
+					"
+				)
+				
+				await writeNormal(
+					"
+	Your companions are shocked out of words, no utterance but they peer at the ground about them and to each other. Shoulders turn towards the Center, eyes longing in directions there and away.
+					"
+				)
+				tellsAboutSon = true
+			if opt == 2:
+				await writeNormal(
+					"
+	You further hold your tongue about this new Son of God.
+					"
+				)
+				tellsAboutSon = false
+				pass
+
+		await writeNormal(
+			"
+What do you do now?
+	1. Return to the center
+	2. Continue your journey
+			"
+		)
+		
+		opt = await getopt([1,2])
 		
 		
 		
+		if opt == 1:
+			await headBack()
+		if opt == 2:
+			await stayPut()
 		
-	if opt == 2: # Look towards the center
+	if optCopy == 2: # Look towards the center
 		await writeNormal(
 		"
 	You take to your wings and soar to great heights to investigate the Center. The eyes angelic contract far distance. 
@@ -401,9 +538,16 @@ I hope you will be satisfied with your decision,' he continues.
 		
 		await cont1()
 		
+		if appreciationOfNature:
+			await writeNormal(
+				"
+	The construction strikes dismay at your heart, 'We are possessors of such great beauty here in this land and our Lord manipulates the center such? I cannot sanction it and I doubt greatly I and God align on this appreciation.'
+				"
+			)
+		
 		await writeNormal(
 			"
-	BELIAL fairly asks, 'A new temple for himself?'
+	BELIAL fairly asks, 'Is it a new temple for himself?'
 	'A home, what of home need our immaterial Lord?' says BEEZLEBUB. 
 	'To be worshipped?' flames MOLOCH.
 	
@@ -436,11 +580,88 @@ Shall you head back to the center or stay where you are, contemplating?
 
 # attend, cataclysm, {rise into air, split up investigate}, head back
 func headBack() -> void: ## INCOMPLETE
+	await writeNormal(
+		"
+	LUCIFER and his allies BEEZLEBUB, MOLOCH, and BELIAL decide to aim their journey back towards the Center. As they grow closer so warms their hearts yet they remain uneasy. A light not that of the sun you see in the distance now. 
+		"
+	)
 	pass
 
 # attend, cataclysm, {rise into air, split up investigate}, stay put
-func stayPut() -> void: ## INCOMPLETE
-	pass
+func stayPut() -> void: 
+	await writeNormal(
+		"
+	LUCIFER, BEEZLEBUB, MOLOCH, and BELIAL decide to refrain or else delay their return. Is it fear they hold of learning the truth, or of the Almighty?
+		"
+	)
+	
+	if knowsOfSon and not tellsAboutSon:
+		await writeNormal(
+			"
+And for whatever reason you choose not to tell your companions about this new Son.
+			"
+		)
+	
+	if tellsAboutSon:
+		await writeNormal(
+			"
+The knowledge of this new Son certainly influenced your decision to continue your journey. 
+			"
+		)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	The companions stay ahwile contemplating their situation. Eventually they gather themselves and travel on from that cataclysmic site. Time away from the Center cools their hearts and heightens distrust, for He is far away now and what He may have shared strikes alarm to their cores. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	Far off now appears a messenger of God, ABDIEL, frevent in his faith. In your distrust, you hide for a moment. ABDIEL's eye cannot find you and your companions among the thick brush. All the same, he announces:
+		'LUCIFIER, I wish to find thee and with thee thy companions angelic of BEEZLEBUB, MOLOCH, and BELIAL. God has made miraculous! The Son! He takes form material. The Son is his Greater Glory!' ABDIEL continues and then leaves.
+		"
+	)
+	
+	await cont1(
+		"
+1. Flee
+		"
+	)
+	
+	text.w = "
+	The fears of these angelic friends now real
+	does cast the seeds of 'spiracy. The rot,
+	distrust of former promise poisons mind,
+	the future actions boldly dared against
+	His Holy Name. The time away will feed
+	this rebel flame, will brew that fatal drink,
+	though courage greatly grow substantial away
+	for such a time--unhurriedly grows this fight.
+	
+	
+	PARADISE      WILL      BE      LOST
+	
+	
+	
+	The End
+	
+	Press q to play again
+		
+		"
+	text.writeFromStart()
+
 
 func secondDirectionLook():
 	await writeNormal("
