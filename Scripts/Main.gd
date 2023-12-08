@@ -90,7 +90,7 @@ A lake to the east is where the water from the summit drains, perfectly reflecti
 		elif opt == 3:
 			await writeNormal("
 
-Your companions stand in a small circle in a glade visible from the hill, gentle pertubations in the terrain create pleasant ripples in the land. The breeze sways the tall grass.
+Your companions stand in a small circle in a glade visible from the hill, gentle perturbations in the terrain create pleasant ripples in the land. The breeze sways the tall grass.
 ")
 			await secondDirectionLook()
 			pass
@@ -133,7 +133,7 @@ A forest of birch casts gentle shadows, a runoff stream from the mountain carves
 	
 	await writeNormal("
 	
-	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see see such a Heavenly pronouncement?'
+	BELIAL speaks thusly, 'Our Almighty gives speech today. We were woken by fellow angels 'midst the night on their own pilgrimage to the center of this great land, not unlike our own journey but of more certain aim. God hath granted us our own will to fly and do where and what we wish--do we wish to see such a Heavenly pronouncement?'
 	
 What do you do?
 	1. We will attend
@@ -152,7 +152,7 @@ What do you do?
 	1. If it's important, we will hear of it later
 	2. God's messages will ring out all around us for He is everywhere
 	3. We will attend upon his request
-	4. He is our Lord and his will intrigues me. We will join him and our brethren angels")
+	4. He is our Lord, and his will intrigues me. We will join him and our brethren angels")
 		if opt == 2 or opt == 4:
 			loveOfGod += 1
 		else:
@@ -180,14 +180,14 @@ You admit to your companions, 'We will attend the Lord's request--I am very intr
 	elif opt == 2:
 		writeNormal("
 		
-And so after some thought you say, 'I've decided we shall continue our own journey,'")
+And so, after some thought you say, 'I've decided we shall continue our own journey,'")
 		await noattend()
 
 
 func attend() -> void: ## INCOMPLETE
 	await writeNormal(
 		"
-	And so LUCIFER and his cadre decide to see what is afoot at the Center of Heaven--whether that is curiosity, obedience, or respect of the Almighty's designs.
+	And so, LUCIFER and his cadre decide to see what is afoot at the Center of Heaven--whether that is curiosity, obedience, or respect of the Almighty's designs.
 		"
 	)
 	
@@ -199,7 +199,7 @@ func attend() -> void: ## INCOMPLETE
 	
 	await writeNormal(
 		"
-	Their mountain vista now molds and melds through many shapes as they travel. Pleasant green rolling hills, gentle plateaus of lush forests. Now, they approach the beatific center of the Center. They approach from elevation, standing on the cliff before it. Great round trees the legs of giants block their view occasionally as they follow the path parallel to the cliff. There is an intense energy in the air, a virtual buzzing, Heaven a-hum with anticipation. 
+	Their mountain vista now molds and melds through many shapes as they travel. Pleasant green rolling hills, gentle plateaus of lush forests. Now, they approach the beatific center of the Center. They approach from elevation, standing on the cliff before it. Great round trees, the legs of giants block their view occasionally as they follow the path parallel to the cliff. There is an intense energy in the air, a virtual buzzing, Heaven a-hum with anticipation. 
 		"
 	)
 	
@@ -211,9 +211,9 @@ func attend() -> void: ## INCOMPLETE
 	
 	await writeNormal(
 		"
-	Throngs upon throngs of brethren angels arrive, many landing to take pleasant strolls along paths laden with flowers. You exhange pleasantries with other friends and acquaintances, disclose your recent journey 'round heaven. 
+	Throngs upon throngs of brethren angels arrive, many landing to take pleasant strolls along paths laden with flowers. You exchange pleasantries with other friends and acquaintances, disclose your recent journey 'round heaven. 
 	
-	The center is a gorge, wrapped about by this great cliff. About the center five tiers of cascading falls lie, each tier its own small home to a series of small pools where crystal-clear water rests for a time before continuing its joruney down the cliff. Uncountable angels remain in places of relaxation among the water and the shade. 
+	The center is a gorge, wrapped about by this great cliff. About the center five tiers of cascading falls lie, each tier its own small home to a series of small pools where crystal-clear water rests for a time before continuing its journey down the cliff. Uncountable angels remain in places of relaxation among the water and the shade. 
 	This gorge feeds all the waters of Heaven, itself fed by the waters of the Source, the Center. 
 		"
 	)
@@ -228,12 +228,154 @@ func attend() -> void: ## INCOMPLETE
 		"
 	'You seem greater at ease, my friend LUCIFER,' BELIAL says, 'as we now approach... why is that?'
 	
-Why do you say?
-	1. It's the natural beauty
-	2.  
+What do you say?
+	1. It's the natural beauty of heaven that relaxes me
+	2. Being nearer His Almighty Self brings me comfort
 		"
 	)
 	
+	var opt = await getopt([1,2])
+	if opt == 1: # nature
+		await  writeNormal(
+			"
+	'This center holds great beauty--the grade of Heaven relaxes me,' you say.
+	
+	BELIAL, seeking argument says thusly: 'We were just on our own trip through the beauty of Heaven, I will not argue the serenity of the center, but did we see nothing of comparison? Were you not happy many leagues from here? Where we were this morning?'
+	
+	'Maybe we hurt ourselves to ponder happiness such--elated we are and perhaps we shall simply accept it,' you say.
+			"
+		)
+	if opt == 2: # god
+		await writeNormal(
+			"
+	'It is the presence and proximity of His Almighty Self which brings me comfort,' you say. 
+	
+	BELIAL, seeking argument says thusly: 'Have you met God? Did he give pause when creating you? This warmth we feel entire is his influence, no doubt, but it feels artificial. If we need it to be happy as we are now, then what is God's true influence?'
+	
+	'Maybe,' you say, 'it is God which hath put you in such a playful mood, BELIAL.'
+			"
+		)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	Some time passes thusly in serenity in the center of Heaven, awaiting this great announcement or pronouncement. The mass of angels takes all the space it can about the center on all tiers. Decorations begin to appear alongside the guiding paths, among the trees, and a festive mood overtakes all. The sun has now begun her descent past noontime. More arrivals expand outward and upward upon their wings. Floating piers materialize to provide respite and greater decoration to the convocation. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	Chatter continues yet each begins to feel a tingling in their fingers. The water in the center begins to rumble and shine beneath the surface, bubbling from the love of God. Geysers erupt within the center, cacophonous, glowing prismatic. Beads of mist hang in the air, each spill comes to a crawl, frozen in time--giving each eye the chance to peruse this spectacle sharpened. A honed pillar of light appears in the center slowly rising, elevating sheets of water alongside. This pillar rises now of a total height twice that of the cataract, the sprinkling still diamantine aglow. 
+		"
+	)
+	
+	await cont1(
+		"
+1. The Lord, Center of center, has arrived!
+		"
+	)
+	
+	await writeNormal(
+		"
+	The silent faith internal, the worship, admiration, the want of nothing screamed much louder than any crowd of the same size, silent yet deafening, if it can be thought. The Voice spoke now,
+		'Greater Glory! Greater Glory! So glad
+		 am I to see these angels mine. To you
+		 is sworn my promise honest, me to thee. 
+		
+		 This day I have begot whom I declare
+		 my only Son and on this holy seat
+		 him have annointed whom ye now behold
+		 as my right hand. Your head I Him appoint
+		 and by Myself have sworn to Him shall bow
+		 All knees in Heav'n and shall confess Him Lord.
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	The pillar of light now opened and strode out The SON, his own sun for a momen, upon the faintest bridge of light, atimes upon nothing, towards the nearest shore at the base of the depression. 
+	
+	You think to yourself for a time: 'His ONLY son? Are we forgotten then? An extension of God's power--are we not respected? Do we stray from Him or does he wish to firmly grasp his troop? 
+	Nay, we are not forgotten. We are instead supplied new master.'
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+
+	await writeNormal(
+		"
+	The Son rises now and with him four great white towers in each direction, marring the landscape. Each tower focuses his light--shortly each angel is blinded but hears a great catastrophe. Crushing stone, crashing water, a feeling of being grabbed and whisked around. Upon regaining sight many see now that they have been misplaced since where they stood not resides some new construction--a temple and throne for God and His Son. 
+	
+	The gorge and cataract have been removed. Thirdly and finally, a great stair like of marble torn from the ground in the east of the temple--one-hundred steps--up to the entrace of His temple, where we will watch His subjects. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Find your companions
+		"
+	)
+	
+	await writeNormal(
+		"
+	This... transformation... disgusts you. Warmth leaves you to be replaced by despair. You try to seek out your companions, wherever they have gone. You eventually find them on the north side of the gorge-now-temple, the opposite side from which you started. You glide down to them slowly.
+	You say to them, 'This transfiguration of the landscape is horrible and disgusting. And now the Almighty displaces the status of His sons? The Son our new leader, God a second, where faith previously directed only at the higher more physical.
+	
+	MOLOCH says, 'God takes physical form to watch us more closely now.'
+	
+	BEEZLEBUB says, 'I thought maybe a material God would bring us closer, but I cannot think as much. No.'
+	
+	BELIAL then, swift and intelligent, suggests, 'Shall we appeal to him in his temple? Question his workings?'
+	
+	'Is this not blasphemy to question our Lord? Almighty I mean by Lord, then his Son,' says BEEZLEBUB. 
+	
+What do you do?
+	1. We will appeal to God together
+	2. I will appeal to God alone
+		"
+	)
+	opt = await getopt([1,2])
+	
+	if opt == 1:
+		await controntTogether()
+	if opt == 2:
+		await confrontAlone()
+		
+
+func confrontAlone() -> void:
+	var angeredGod : int = 0
+	
+	if angeredGod >= 3: # RENDERED TO ASH
+		pass
+		
+	else: # NARROWLY ESCAPED
+		pass
+	
+func controntTogether() -> void:
+	pass
+
+
 
 func noattend() -> void:
 	await writeNormal("
@@ -244,7 +386,7 @@ func noattend() -> void:
 	
 	await writeNormal("
 	
-	LUCIFER continues his journey, scouting, learning, and reveling in the beauty of Heaven. West along the foot of the mountain, atimes alight on their wings or else on foot, pausing frequently to observe this first-seen land, they continue. Each spoke their thoughts roving now, though interested in the happenings of the Court of God this day enraptured fully in oth'wise unprec-dented journey far askew haven angelic.")
+	LUCIFER continues his journey, scouting, learning, and reveling in the beauty of Heaven. West along the foot of the mountain, atimes in flight on their wings or else on foot, pausing frequently to observe this first-seen land, they continue. Each spoke their thoughts roving now, though interested in the happenings of the Court of God this day enraptured fully in oth'wise unprec-dented journey far askew haven angelic.")
 	
 	await cont1()
 	
@@ -269,7 +411,7 @@ func noattend() -> void:
 	await writeNormal("
 	
 What do you say?
-	1. I agree with MOLOCH, perhaps we should have strove nearer our Center this day.
+	1. I agree with MOLOCH, perhaps we should have strode nearer our Center this day.
 	2. I agree with MOLOCH, I am concerned about the power that God may hold.
 	3. I agree with BEEZLEBUB, we take our material forms to grow closer to God and to know Him.
 	4. I agree with BEEZLEBUB, though I stand that the infinite may not be grasped entirely.
@@ -280,7 +422,7 @@ What do you say?
 	if opt == 1:
 		await writeNormal("
 		
-	You say, 'I agree with MOLOCH, perhaps we should have strove nearer our Center this day...'")
+	You say, 'I agree with MOLOCH, perhaps we should have strode nearer our Center this day...'")
 		molochAgree += 1
 		pass
 	if opt == 2:
@@ -316,7 +458,7 @@ What do you say?
 	
 	await writeNormal("
 	
-	Just as your last words fall silent the ground shakes and the tooth of rock far off reverbrates and rings, reflecting within itself and near its root, as a call in empty room or wave in clear pond, like that nymph Echo. Thrice you hear it ring and upon the third the mountain shakes. At the final call a great rush of leaden snow rolls down the side battering all in its way. Residual shakes make your feet uneasy--trees tremble and the world remains silent out of respect.")
+	Just as your last words fall silent the ground shakes and the tooth of rock far off reverberates and rings, reflecting within itself and near its root, as a call in empty room or wave in clear pond, like that nymph Echo. Thrice you hear it ring and upon the third the mountain shakes. At the final call a great rush of leaden snow rolls down the side battering all in its way. Residual shakes make your feet uneasy--trees tremble and the world remains silent out of respect.")
 
 	await cont1("\n\n1. What is happening?")
 	
@@ -344,7 +486,7 @@ What do you do?
 	You decide to split up and look around. Where you stray are fissures in the soil. You wander further and find the great pile of snow now attempting to melt. It lies in great contrast to the dry canyon in which it rests. You find respite on the precipice for a moment. 
 	
 	Suddenly, leaves crinkle and rustle behind you by uncareful steps and a figure of cherub-look appears. He looks past you and thus you say: 
-		'Ho there, wanderer. You carry no deft or deceit and I sense no untoward nature of you, but of a sudden you do appear. Who might you be? A lost cherub, a new companion to our journeys perhaps, but a clumsy one, and a wingless form for the moment. LUCIFIER, I be, a sojourner, of the sons of God as you may be. Experiencer of that perhaps devine cataclsym hours past, thrice the mountain rung and oft ground shook and snow fell. I say again, who might you be, fellow?'
+		'Ho there, wanderer. You carry no deft or deceit and I sense no untoward nature of you, but of a sudden you do appear. Who might you be? A lost cherub, a new companion to our journeys perhaps, but a clumsy one, and a wingless form for the moment. LUCIFIER, I be, a sojourner, of the sons of God as you may be. Experiencer of that perhaps divine cataclysm hours past, thrice the mountain rung and oft ground shook and snow fell. I say again, who might you be, fellow?'
 			"
 		)
 		
@@ -356,8 +498,8 @@ What do you do?
 		
 		await writeNormal(
 			"
-	The stranger now looks squarely on and through you eyes alight and a gaze like that of a strike of a sword, it impacts and carries through. Lo, the stranger says:
-		'Greetings LUCIFER, fellow of wanderers in this Land of Faith. Aye, I heard the same a short time ago. Yet... at that time I was alight and heard it only and experienced not the unsteadiness I hear you now describe. How unlucky or perhaps favorable we are to meet now.'
+	The stranger now looks squarely on and through you, eyes alight and a gaze like that of a strike of a sword, it impacts and carries through. Lo, the stranger says:
+		'Greetings LUCIFER, fellow of wanderers in this Land of Faith. Aye, I heard the same a short time ago. Yet... at that time I was by wing and heard it only and experienced not the unsteadiness I hear you now describe. How unlucky or perhaps favorable we are to meet now.'
 			"
 		)
 		
@@ -617,7 +759,7 @@ The knowledge of this new Son certainly influenced your decision to continue you
 	
 	await writeNormal(
 		"
-	The companions stay ahwile contemplating their situation. Eventually they gather themselves and travel on from that cataclysmic site. Time away from the Center cools their hearts and heightens distrust, for He is far away now and what He may have shared strikes alarm to their cores. 
+	The companions stay awhile contemplating their situation. Eventually they gather themselves and travel on from that cataclysmic site. Time away from the Center cools their hearts and heightens distrust, for He is far away now and what He may have shared strikes alarm to their cores. 
 		"
 	)
 	
@@ -629,7 +771,7 @@ The knowledge of this new Son certainly influenced your decision to continue you
 	
 	await writeNormal(
 		"
-	Far off now appears a messenger of God, ABDIEL, frevent in his faith. In your distrust, you hide for a moment. ABDIEL's eye cannot find you and your companions among the thick brush. All the same, he announces:
+	Far off now appears a messenger of God, ABDIEL, fervent in his faith. In your distrust, you hide for a moment. ABDIEL's eye cannot find you and your companions among the thick brush. All the same, he announces:
 		'LUCIFIER, I wish to find thee and with thee thy companions angelic of BEEZLEBUB, MOLOCH, and BELIAL. God has made miraculous! The Son! He takes form material. The Son is his Greater Glory!' ABDIEL continues and then leaves.
 		"
 	)

@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://rqusr33gr1ku"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://rqusr33gr1ku"]
+
+[ext_resource type="SystemFont" uid="uid://d2mu6mcy4fi1u" path="res://couriernew.tres" id="1_1oesl"]
 
 [sub_resource type="SystemFont" id="SystemFont_1k4el"]
 font_names = PackedStringArray("Courier New")
@@ -81,7 +83,7 @@ content_margin_right = 0.0
 content_margin_bottom = 0.0
 
 [resource]
-default_font = SubResource("SystemFont_1k4el")
+default_font = ExtResource("1_1oesl")
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)

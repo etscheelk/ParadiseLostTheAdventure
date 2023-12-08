@@ -1,0 +1,6 @@
+[gd_resource type="SystemFont" format=3 uid="uid://d2mu6mcy4fi1u"]
+
+[resource]
+font_names = PackedStringArray("Courier New")
+font_weight = 800
+generate_mipmaps = true
