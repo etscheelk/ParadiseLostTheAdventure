@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxq7jywlm3phu"]
+[gd_scene load_steps=7 format=3 uid="uid://dxq7jywlm3phu"]
 
 [ext_resource type="Script" path="res://TextTest.gd" id="1_1fby8"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_sbxjx"]
 [ext_resource type="Theme" uid="uid://rqusr33gr1ku" path="res://Main.tres" id="1_va1gg"]
+[ext_resource type="SystemFont" uid="uid://d2mu6mcy4fi1u" path="res://couriernew.tres" id="4_34blo"]
 [ext_resource type="Material" uid="uid://be41o36vlwy46" path="res://ShaderMaterial.tres" id="4_kyed0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cc37w"]
@@ -43,11 +44,12 @@ custom_minimum_size = Vector2(100, 300)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_va1gg")
+theme_override_fonts/normal_font = ExtResource("4_34blo")
 text = "Hello There!"
 scroll_active = false
 scroll_following = true
 script = ExtResource("1_1fby8")
 w = ""
 charNF = 0
-spaceNF = 0
+spaceNF = 2
 newLineNF = 10

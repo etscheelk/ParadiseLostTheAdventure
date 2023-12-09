@@ -340,8 +340,16 @@ What do you say?
 	await writeNormal(
 		"
 	This... transformation... disgusts you. Warmth leaves you to be replaced by despair. You try to seek out your companions, wherever they have gone. You eventually find them on the north side of the gorge-now-temple, the opposite side from which you started. You glide down to them slowly.
-	You say to them, 'This transfiguration of the landscape is horrible and disgusting. And now the Almighty displaces the status of His sons? The Son our new leader, God a second, where faith previously directed only at the higher more physical.
+	You say to them, 'This transfiguration of the landscape is horrible and disgusting. And now the Almighty displaces the status of His sons? The Son our new leader, God a second, where faith previously directed only at the higher.
+		")
 	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal("
 	MOLOCH says, 'God takes physical form to watch us more closely now.'
 	
 	BEEZLEBUB says, 'I thought maybe a material God would bring us closer, but I cannot think as much. No.'
@@ -351,31 +359,226 @@ What do you say?
 	'Is this not blasphemy to question our Lord? Almighty I mean by Lord, then his Son,' says BEEZLEBUB. 
 	
 What do you do?
-	1. We will appeal to God together
-	2. I will appeal to God alone
+	1. I will appeal to God alone
+	2. We shall not appeal to him--it is better that way ## INCOMPLETE
 		"
 	)
 	opt = await getopt([1,2])
 	
 	if opt == 1:
-		await controntTogether()
-	if opt == 2:
 		await confrontAlone()
+	if opt == 2:
+		await noConfront()
+		pass
 		
 
-func confrontAlone() -> void:
+func confrontAlone() -> void: ## INCOMPLETE
 	var angeredGod : int = 0
 	
-	if angeredGod >= 3: # RENDERED TO ASH
-		pass
-		
-	else: # NARROWLY ESCAPED
-		pass
+	await writeNormal(
+		"
+	You decide you shall confront God and appeal to Him alone in His new temple. You walk deliberately to the great eastern steps, yet you pause at the bottom. The sun hides herself from this sight to be now, in her great descent now.
+	You take the first step, step, and step. One hundred in total, no landing nor break. Half way up the Sun now shows her dimmer side and torches alight appear flanking the stair, lighting in sequence from base to peak. No supplicants there be, all alone you are now. The orange haze of the sunset and the flames rends corners swelling in purple shade. 
+		"
+	)
 	
-func controntTogether() -> void:
+	await cont1(
+		"
+1. Continue Stepping
+		"
+	)
+	
+	await writeNormal(
+		"
+	You reach the top and the white light of the Son pierces into the night. You peer inside, what should be warmth of the Love of God is shivers and a cool light. The chamner is high and long, a vaulted ceiling with carved pillars all the way down. Flames again, yet distrustful shadows cast behind each pillar. '
+	
+	The Son sits on his throne at the far end, raised several steps, conversing with the Light above him to his left. LUCIFER is seen by him far off but the Son pays no heed. 
+	Plodding steps bring you closer until the Son halts you where you are,
+		'No further now, kind LUCIFER, what do you come to Us with?'
+		"
+	)
+	
+	await cont1(
+		"
+1. I come with appeal and inquiry to the Lord, the Almighty I mean, and yourself, his... greater glory.
+		"
+	)
+	
+	await writeNormal(
+		"
+	'I am your Lord, what do you wish?,' the Son says. 
+	
+What do you say?
+	1. Why build this temple? In its creation is also destruction of the greatest beauty of Heaven.
+	2. What is the purpose of this temple?
+		"
+	)
+	
+	var opt = await getopt([1,2])
+	if opt == 1: # mean
+		angeredGod += 1
+		await writeNormal(
+			"
+	You plead, 'Why build this temple? In its creation is also destruction of the greatest beauty of Heaven.'
+	
+	And the Son responds coolly: 'Nature is not the fittest object of thy worship. You stand before your God and this is what you ask? Not of the potential majesty?' 
+			"
+		)
+	if opt == 2: # nice
+		await writeNormal(
+			"
+	You ask, 'What is the purpose of this temple?`
+	
+	And the Son says thusly: 'To greater my Divine Father's eye. I am He manifest, in me find Him.
+			"
+		)
+		
+	await writeNormal(
+		"
+How do you respond?
+	1. So what are we to do then, except worship our God supplanted?
+	2. Our faith towards you, now?
+		"
+	)
+	
+	opt = await getopt([1,2])
+	if opt == 1: # mean
+		angeredGod += 1
+		await writeNormal(
+			"
+	You question, 'So what are we to do then, except worship our God supplanted?
+	
+	'Not supplanted but doubled and I His physical, so you may grow closer. This is a gift to you. I suggest you watch your tone, LUCIFER, I have seen your future.'
+			"
+		)
+	if opt == 2: # nice
+		await writeNormal(
+			"
+	You ask, 'Our faith towards you, now?'
+	
+	'Towards me, aye, but towards my Father, too. I His physcial so He may grow closer to thee,' the Son says.
+			"
+		)
+	
+	
+	await writeNormal(
+		"
+How do you respond?
+	1. And You he call his only Son? What of his angelic sons, myself included?
+	2. Why does He call you his only Son?
+		"
+	)
+	
+	opt = await getopt([1,2])
+	angeredGod += 1
+	if opt == 1:
+		await writeNormal(
+			"
+	'And You he call his only Son? What of his angelic sons, myself included?' you ask.
+			"
+		)
+	if opt == 2:
+		await writeNormal(
+			"
+	'Why does He call you his only Son?' you ask.
+			"
+		)
+		
+	await writeNormal("
+	'Ask not further, I command it. You invoke Our ire. Accept His word--I am your Lord now as well as He,' the Son commanded. 
+	")
+	
+	await writeNormal(
+		"
+	You feel the air heavy around you, God's scorn for the questions.
+	
+	You catch your mind and begin to voice your final question, but the Son interrupts you:
+		"
+	)
+	
+	if angeredGod >= 3: # RENDERED TO ASH
+		await writeNormal(
+			"
+		'I grow tired of your questions,' the Son says with a small wave of his hand. 
+			"
+		)
+		
+		await cont1(
+			"
+1. Continue
+			"
+		)
+		
+		await writeNormal(
+			"
+	As your last voice leaves your mouth it becomes a scream. You have angered God. From your feet up you are rendered to sickly ash. Your wings are gone like two great arms ripped them off, you fall now and crawling you leave a disgusting trail. Pain, pain for the first time. It grows beyond your comprehension. Your arm outstretched on the first step to the throne is the last to dissolve. 
+			"
+		)
+		
+		await cont1(
+			"
+1. Continue
+			"
+		)
+		
+		await writeNormal(
+			"
+	LUCIFER's curdling screams were heard by his companions now standing at the base of the eastern stair. The final yell, with finality, blew out the torches leaving BEEZLEBUB, MOLOCH, and BELIAL in darkness. No one had heard screaming in this bountiful place before. 
+	No words need be spoken by them. Mutual looks begat a mutual aim. God cannot be trusted. 
+	
+	
+	
+	PARADISE      WILL     BE      LOST
+			"
+		)
+		
+	else: # NARROWLY ESCAPED ## INCOMPLETE
+		await writeNormal(
+			"
+		'I grow tired of your questions,' the Son says with a small wave of his hand, 'I am merciful.' 
+		
+	You are transported to the entrance of the temple, now facing east. Your legs begin moving without your say so and you begin walking down the steps, torches drowned with every other step. Your mind is a fog yet it clears as you approach the bottom. Your companions, BEEZLEBUB, MOLOCH, and BELIAL wait for you at the bottom. 
+			"
+		)
+		
+		await cont1(
+			"
+1. Continue
+			"
+		)
+		
+		await writeNormal(
+			"
+	Your companions fawn over you, questioning what happend. To them you say thusly: 'I know not what happened near the end. Firsly I stood and questioned God and the Son and then a wave of his hand I appeared at the top of the stair and began walking down not of my own accord. To be here now with you,' you tell.
+	You continue, 'It seems the Son has truly usurped our Almighty as our master, this a place of worship, we no longer the sons of God--He His only Son now. I feel I only narrowly escaped. We have been scorned.'
+	
+	
+	
+	
+	
+	
+	
+	PARADISE     WILL      BE      LOST
+			"
+		)
+
+
+## INCOMPLETE
+func noConfront() -> void:
+	await writeNormal(
+		"
+	You and your companions decide that you shall not confront God--what answers do you truly expect? God and His only Son has shown who he is. You decide to begin your pilgrimage again, yet with schemes and plans.
+	
+	
+	
+	
+	
+	
+	
+	PARADISE      WILL      BE      LOST
+		"
+	)
 	pass
-
-
 
 func noattend() -> void:
 	await writeNormal("
@@ -725,6 +928,53 @@ func headBack() -> void: ## INCOMPLETE
 	await writeNormal(
 		"
 	LUCIFER and his allies BEEZLEBUB, MOLOCH, and BELIAL decide to aim their journey back towards the Center. As they grow closer so warms their hearts yet they remain uneasy. A light not that of the sun you see in the distance now. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	A cold warmth rises in your core as you approach the center, yet what was the center is no more. This insincere warmth a lie and an unmet expectation--warmth since they expect it and lie to themselves that is there, cold since it is gone. 
+	Great construction now takes the place of the center, a resplendent cataract feeding a gorge now filled, destroyed, removed for now a temple or a home surrounded by four terrific towers, focusing the eye of God. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Continue
+		"
+	)
+	
+	await writeNormal(
+		"
+	ABDIEL, fervent worshipper of God, approaches on foot now, announcing thus: 'LUCIFER! God has had His fill of our love and has rewarded us! A new Lord, physical in form and a place from which to see Him and worship. He is God's Greater Glory--The Son, his only son, an embodiment of all angelic faith!'
+	Merry, ABDIEL passes by the companions without another word. 
+		"
+	)
+	
+	await cont1(
+		"
+1. Our fears confirmed
+		"
+	)
+	
+	await writeNormal(
+		"
+	'Our God supplanted by another,' you say to your companions, 'does His form now bring us closer to God? And at what cost? A new master--a second master. Our status as God's sons betrayed. And at the cost of beauty of center?'
+	Your companions think similarly, they had been spurned by God, whom they had trusted implicitly. 
+	
+	
+	
+	
+	
+	
+	
+	PARADISE      WILL      BE      LOST
 		"
 	)
 	pass
