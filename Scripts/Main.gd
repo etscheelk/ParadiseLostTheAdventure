@@ -370,7 +370,6 @@ What do you do?
 	if opt == 2:
 		await noConfront()
 		pass
-		
 
 func confrontAlone() -> void: ## INCOMPLETE
 	var angeredGod : int = 0
@@ -505,19 +504,19 @@ How do you respond?
 		
 		await cont1(
 			"
-1. Continue
+1. ...
 			"
 		)
 		
 		await writeNormal(
 			"
-	As your last voice leaves your mouth it becomes a scream. You have angered God. From your feet up you are rendered to sickly ash. Your wings are gone like two great arms ripped them off, you fall now and crawling you leave a disgusting trail. Pain, pain for the first time. It grows beyond your comprehension. Your arm outstretched on the first step to the throne is the last to dissolve. 
+	As your last voice leaves your mouth it becomes a scream. You have angered God. From your feet up you are rendered to sickly ash. Your wings are amputated as if by two great arms, you fall now and crawling you leave a disgusting trail. Pain, pain for the first time. It grows beyond your comprehension. Your arm outstretched on the first step to the throne is the last to dissolve. 
 			"
 		)
 		
 		await cont1(
 			"
-1. Continue
+1. LUCIFER is dead
 			"
 		)
 		
@@ -526,6 +525,7 @@ How do you respond?
 	LUCIFER's curdling screams were heard by his companions now standing at the base of the eastern stair. The final yell, with finality, blew out the torches leaving BEEZLEBUB, MOLOCH, and BELIAL in darkness. No one had heard screaming in this bountiful place before. 
 	No words need be spoken by them. Mutual looks begat a mutual aim. God cannot be trusted. 
 	
+	An angel dead by His procedure deft
 	
 	
 	PARADISE      WILL     BE      LOST
