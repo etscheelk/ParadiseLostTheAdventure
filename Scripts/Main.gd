@@ -525,7 +525,13 @@ How do you respond?
 	LUCIFER's curdling screams were heard by his companions now standing at the base of the eastern stair. The final yell, with finality, blew out the torches leaving BEEZLEBUB, MOLOCH, and BELIAL in darkness. No one had heard screaming in this bountiful place before. 
 	No words need be spoken by them. Mutual looks begat a mutual aim. God cannot be trusted. 
 	
+	
 	An angel dead by His procedure deft
+	has spelled the poss'ble future one--now death,
+	this new thing, death, unique in heaven 'vealed. 
+	In hearts of friends it strikes despair, to breed
+	a greater fight of utmost dissent to'ards
+	that Holy Name and His now wicked Son. 
 	
 	
 	PARADISE      WILL     BE      LOST
@@ -553,7 +559,7 @@ How do you respond?
 	You continue, 'It seems the Son has truly usurped our Almighty as our master, this a place of worship, we no longer the sons of God--He His only Son now. I feel I only narrowly escaped. We have been scorned.'
 	
 	
-	
+	Deceit hath made 
 	
 	
 	
@@ -567,9 +573,14 @@ How do you respond?
 func noConfront() -> void:
 	await writeNormal(
 		"
-	You and your companions decide that you shall not confront God--what answers do you truly expect? God and His only Son has shown who he is. You decide to begin your pilgrimage again, yet with schemes and plans.
+	You and your companions decide that you shall not confront God--what answers do you truly expect? God and His only Son have shown who they are. You decide to begin your pilgrimage again, yet with schemes and plans.
 	
 	
+	The true self of God exposed, deceitful
+	is He, the deity of grand folk, the angels be lost
+	to Him, or some, at least. This crew shall fight
+	whate'er the future holds, conniving rebels
+	that seek their freedom from the Holy Name.
 	
 	
 	
