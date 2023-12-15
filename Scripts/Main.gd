@@ -980,7 +980,7 @@ func headBack() -> void: ## INCOMPLETE
 	Your companions think similarly, they had been spurned by God, whom they had trusted implicitly. 
 	
 	
-	
+	That Abdiel, fervent loyalist
 	
 	
 	
