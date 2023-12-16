@@ -73,5 +73,5 @@ func _updateWriting():
 			waitFrames -= 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
 	_updateWriting()

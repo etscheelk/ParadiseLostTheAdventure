@@ -327,7 +327,7 @@ What do you say?
 		"
 	The Son rises now and with him four great white towers in each direction, marring the landscape. Each tower focuses his light--shortly each angel is blinded but hears a great catastrophe. Crushing stone, crashing water, a feeling of being grabbed and whisked around. Upon regaining sight many see now that they have been misplaced since where they stood not resides some new construction--a temple and throne for God and His Son. 
 	
-	The gorge and cataract have been removed. Thirdly and finally, a great stair like of marble torn from the ground in the east of the temple--one-hundred steps--up to the entrace of His temple, where we will watch His subjects. 
+	The gorge and cataract have been removed. Thirdly and finally, a great stair like of marble torn from the ground in the east of the temple--one-hundred steps--up to the entrace of His temple, where He will watch His subjects. 
 		"
 	)
 	
@@ -389,7 +389,7 @@ func confrontAlone() -> void: ## INCOMPLETE
 	
 	await writeNormal(
 		"
-	You reach the top and the white light of the Son pierces into the night. You peer inside, what should be warmth of the Love of God is shivers and a cool light. The chamner is high and long, a vaulted ceiling with carved pillars all the way down. Flames again, yet distrustful shadows cast behind each pillar. '
+	You reach the top and the white light of the Son pierces into the night. You peer inside, what should be warmth of the Love of God is shivers and a cool light. The chamber is high and long, a vaulted ceiling with carved pillars all the way down. Flames again, yet distrustful shadows cast behind each pillar. '
 	
 	The Son sits on his throne at the far end, raised several steps, conversing with the Light above him to his left. LUCIFER is seen by him far off but the Son pays no heed. 
 	Plodding steps bring you closer until the Son halts you where you are,
@@ -524,8 +524,17 @@ How do you respond?
 			"
 	LUCIFER's curdling screams were heard by his companions now standing at the base of the eastern stair. The final yell, with finality, blew out the torches leaving BEEZLEBUB, MOLOCH, and BELIAL in darkness. No one had heard screaming in this bountiful place before. 
 	No words need be spoken by them. Mutual looks begat a mutual aim. God cannot be trusted. 
+			")
 	
 	
+		await cont1(
+			"
+1. Flee
+			"
+		)
+	
+		await writeNormal(
+		"
 	An angel dead by His procedure deft
 	has spelled the poss'ble future one--now death,
 	this new thing, death, unique in heaven 'vealed. 
@@ -534,7 +543,14 @@ How do you respond?
 	that Holy Name and His now wicked Son. 
 	
 	
+	
 	PARADISE      WILL     BE      LOST
+	
+	
+	
+	The End
+	
+	Press q to play again
 			"
 		)
 		
@@ -557,14 +573,34 @@ How do you respond?
 			"
 	Your companions fawn over you, questioning what happend. To them you say thusly: 'I know not what happened near the end. Firsly I stood and questioned God and the Son and then a wave of his hand I appeared at the top of the stair and began walking down not of my own accord. To be here now with you,' you tell.
 	You continue, 'It seems the Son has truly usurped our Almighty as our master, this a place of worship, we no longer the sons of God--He His only Son now. I feel I only narrowly escaped. We have been scorned.'
-	
-	
-	Deceit hath made new rebels 'midst 
-	
+			")
+			
+		await cont1(
+			"
+1. Flee
+			"
+		)
+		
+		await writeNormal(
+			"
+	Deceit hath made new rebels 'midst the land
+	of God--they flee now hoping farther pastures
+	may save ideals of freedom self-affirmed. 
+	Yet, freedom not they fight but for ideal,
+	against the Son, the Heaven-Tyrant rules.
+	So Lucifer scarcely 'live begins his flow
+	against Almighty Lord. Implicit trust
+	betrayed by One he exalted, no more. 
 	
 	
 	
 	PARADISE     WILL      BE      LOST
+	
+	
+	
+	The End
+	
+	Press q to play again
 			"
 		)
 
@@ -574,8 +610,16 @@ func noConfront() -> void:
 	await writeNormal(
 		"
 	You and your companions decide that you shall not confront God--what answers do you truly expect? God and His only Son have shown who they are. You decide to begin your pilgrimage again, yet with schemes and plans.
+		")
 	
+	await cont1(
+		"
+1. Flee
+		"
+	)
 	
+	await writeNormal(
+		"
 	The true self of God exposed, deceitful
 	is He, the deity of grand folk, the angels be lost
 	to Him, or some, at least. This crew shall fight
@@ -587,8 +631,15 @@ func noConfront() -> void:
 	
 	
 	PARADISE      WILL      BE      LOST
+	
+	
+	
+	The End
+	
+	Press q to play again
 		"
 	)
+	
 	pass
 
 func noattend() -> void:
@@ -978,8 +1029,18 @@ func headBack() -> void: ## INCOMPLETE
 		"
 	'Our God supplanted by another,' you say to your companions, 'does His form now bring us closer to God? And at what cost? A new master--a second master. Our status as God's sons betrayed. And at the cost of beauty of center?'
 	Your companions think similarly, they had been spurned by God, whom they had trusted implicitly. 
+		")
+		
+	
+	await cont1(
+		"
+1. Flee
+		"
+	)
 	
 	
+	await writeNormal(
+		"
 	That Abdiel, fervent loyalist towards the One
 	who, now, has shown that they, His lower sons,
 	forgotten be. Replaced, recentered to'ards
@@ -990,6 +1051,12 @@ func headBack() -> void: ## INCOMPLETE
 	
 	
 	PARADISE      WILL      BE      LOST
+	
+	
+	
+	The End
+	
+	Press q to play again
 		"
 	)
 	pass
@@ -1047,7 +1114,7 @@ The knowledge of this new Son certainly influenced your decision to continue you
 		"
 	)
 	
-	text.w = "
+	await writeNormal( "
 	The fears of these angelic friends now real
 	does cast the seeds of 'spiracy. The rot,
 	distrust of former promise poisons mind,
@@ -1058,6 +1125,7 @@ The knowledge of this new Son certainly influenced your decision to continue you
 	for such a time--unhurriedly grows this fight.
 	
 	
+	
 	PARADISE      WILL      BE      LOST
 	
 	
@@ -1066,8 +1134,7 @@ The knowledge of this new Son certainly influenced your decision to continue you
 	
 	Press q to play again
 		
-		"
-	text.writeFromStart()
+		")
 
 
 func secondDirectionLook():
