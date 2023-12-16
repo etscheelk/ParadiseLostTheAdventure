@@ -559,7 +559,7 @@ How do you respond?
 	You continue, 'It seems the Son has truly usurped our Almighty as our master, this a place of worship, we no longer the sons of God--He His only Son now. I feel I only narrowly escaped. We have been scorned.'
 	
 	
-	Deceit hath made 
+	Deceit hath made new rebels 'midst 
 	
 	
 	
@@ -980,8 +980,12 @@ func headBack() -> void: ## INCOMPLETE
 	Your companions think similarly, they had been spurned by God, whom they had trusted implicitly. 
 	
 	
-	That Abdiel, fervent loyalist
-	
+	That Abdiel, fervent loyalist towards the One
+	who, now, has shown that they, His lower sons,
+	forgotten be. Replaced, recentered to'ards
+	the One and Only Son. Implicit trust
+	misplaced in One forsaking angel kind.
+	To them now shown the end of Heav'nly joy.
 	
 	
 	
