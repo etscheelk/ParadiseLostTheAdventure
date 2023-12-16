@@ -5,4 +5,4 @@ A text adventure of the *Paradise Lost*, focusing on the mentality and inevitabi
 
 Highly inspired by the text adventures featured in *The Talos Principle* and its sequel, *The Talos Principle 2*. 
 
-Developed in Godot and currently incomplete. Though I wanted to write this in C, I also wanted to be able to compile and have this be run on a variety of machines for other students to play once it is finished. Additionally, Godot has visual editing, nodes for playing audio, and greater opportunity for artistic flair for less cost. 
+Developed in Godot 4. Though I wanted to write this in C, I also wanted to be able to compile and have this be run on a variety of machines for other students to play once it is finished. Additionally, Godot has visual editing, nodes for playing audio, and greater opportunity for artistic flair for less cost. 
