@@ -360,7 +360,7 @@ What do you say?
 	
 What do you do?
 	1. I will appeal to God alone
-	2. We shall not appeal to him--it is better that way ## INCOMPLETE
+	2. We shall not appeal to him--it is better that way
 		"
 	)
 	opt = await getopt([1,2])
